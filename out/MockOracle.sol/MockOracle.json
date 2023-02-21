@@ -1,0 +1,1153 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_volatility",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "floorPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_erc721",
+          "type": "address"
+        }
+      ],
+      "name": "getFloorPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_erc721",
+          "type": "address"
+        }
+      ],
+      "name": "getVolatility",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_erc721",
+          "type": "address"
+        }
+      ],
+      "name": "getVolatilityAndFloorPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_floorPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "setFloorPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_volatility",
+          "type": "uint256"
+        }
+      ],
+      "name": "setVolatility",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "volatility",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080604052600a600055671bc16d674ec8000060015534801561002157600080fd5b5060405161021638038061021683398101604081905261004091610048565b600055610061565b60006020828403121561005a57600080fd5b5051919050565b6101a6806100706000396000f3fe608060405234801561001057600080fd5b506004361061007d5760003560e01c80639363c8121161005b5780639363c812146100ed5780639fdcadc4146100f6578063c3e214fc14610109578063cce992301461011e57600080fd5b80633029cafc146100825780633d05829d146100aa57806373be031f146100bf575b600080fd5b610097610090366004610127565b5060005490565b6040519081526020015b60405180910390f35b6100bd6100b8366004610157565b600155565b005b6100d86100cd366004610127565b506000546001549091565b604080519283526020830191909152016100a1565b61009760015481565b6100bd610104366004610157565b600055565b610097610117366004610127565b5060015490565b61009760005481565b60006020828403121561013957600080fd5b81356001600160a01b038116811461015057600080fd5b9392505050565b60006020828403121561016957600080fd5b503591905056fea264697066735822122032d78985b542609fe0548e7861a2638eb33b3940b7f16e90679c6b479c76769264736f6c63430008100033",
+    "sourceMap": "61:795:16:-:0;;;116:2;88:30;;153:7;125:35;;169:76;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;213:10;:24;61:795;;14:184:17;84:6;137:2;125:9;116:7;112:23;108:32;105:52;;;153:1;150;143:12;105:52;-1:-1:-1;176:16:17;;14:184;-1:-1:-1;14:184:17:o;:::-;61:795:16;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x608060405234801561001057600080fd5b506004361061007d5760003560e01c80639363c8121161005b5780639363c812146100ed5780639fdcadc4146100f6578063c3e214fc14610109578063cce992301461011e57600080fd5b80633029cafc146100825780633d05829d146100aa57806373be031f146100bf575b600080fd5b610097610090366004610127565b5060005490565b6040519081526020015b60405180910390f35b6100bd6100b8366004610157565b600155565b005b6100d86100cd366004610127565b506000546001549091565b604080519283526020830191909152016100a1565b61009760015481565b6100bd610104366004610157565b600055565b610097610117366004610127565b5060015490565b61009760005481565b60006020828403121561013957600080fd5b81356001600160a01b038116811461015057600080fd5b9392505050565b60006020828403121561016957600080fd5b503591905056fea264697066735822122032d78985b542609fe0548e7861a2638eb33b3940b7f16e90679c6b479c76769264736f6c63430008100033",
+    "sourceMap": "61:795:16:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;357:108;;;;;;:::i;:::-;-1:-1:-1;420:7:16;447:10;;357:108;;;;451:25:17;;;439:2;424:18;357:108:16;;;;;;;;473:96;;;;;;:::i;:::-;537:10;:24;473:96;;;693:160;;;;;;:::i;:::-;-1:-1:-1;785:7:16;822:10;834;;822;;693:160;;;;;846:25:17;;;902:2;887:18;;880:34;;;;819:18;693:160:16;672:248:17;125:35:16;;;;;;253:96;;;;;;:::i;:::-;317:10;:24;253:96;577:108;;;;;;:::i;:::-;-1:-1:-1;667:10:16;;;577:108;88:30;;;;;;14:286:17;73:6;126:2;114:9;105:7;101:23;97:32;94:52;;;142:1;139;132:12;94:52;168:23;;-1:-1:-1;;;;;220:31:17;;210:42;;200:70;;266:1;263;256:12;200:70;289:5;14:286;-1:-1:-1;;;14:286:17:o;487:180::-;546:6;599:2;587:9;578:7;574:23;570:32;567:52;;;615:1;612;605:12;567:52;-1:-1:-1;638:23:17;;487:180;-1:-1:-1;487:180:17:o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "floorPrice()": "9363c812",
+    "getFloorPrice(address)": "c3e214fc",
+    "getVolatility(address)": "3029cafc",
+    "getVolatilityAndFloorPrice(address)": "73be031f",
+    "setFloorPrice(uint256)": "3d05829d",
+    "setVolatility(uint256)": "9fdcadc4",
+    "volatility()": "cce99230"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_volatility\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"floorPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_erc721\",\"type\":\"address\"}],\"name\":\"getFloorPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_erc721\",\"type\":\"address\"}],\"name\":\"getVolatility\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_erc721\",\"type\":\"address\"}],\"name\":\"getVolatilityAndFloorPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_floorPrice\",\"type\":\"uint256\"}],\"name\":\"setFloorPrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_volatility\",\"type\":\"uint256\"}],\"name\":\"setVolatility\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"volatility\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/mocks/MockOracle.sol\":\"MockOracle\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"src/mocks/MockOracle.sol\":{\"keccak256\":\"0x0ba24683087cffa1a2bc1d58c875ac4aaa0af571c5509737ea5d164aba921a0b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3a42f1d485fbc4c0f5687fc9d0f18769571c5c27350e577135a5abd3d7c610cb\",\"dweb:/ipfs/QmNn8srXQ6wD6M3DdH6qd8Mafyetyrx4drtSnMGHSuUv5N\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.16+commit.07a7930e"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_volatility",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "floorPrice",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_erc721",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getFloorPrice",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_erc721",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getVolatility",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_erc721",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getVolatilityAndFloorPrice",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_floorPrice",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setFloorPrice"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_volatility",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setVolatility"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "volatility",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/mocks/MockOracle.sol": "MockOracle"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/mocks/MockOracle.sol": {
+        "keccak256": "0x0ba24683087cffa1a2bc1d58c875ac4aaa0af571c5509737ea5d164aba921a0b",
+        "urls": [
+          "bzz-raw://3a42f1d485fbc4c0f5687fc9d0f18769571c5c27350e577135a5abd3d7c610cb",
+          "dweb:/ipfs/QmNn8srXQ6wD6M3DdH6qd8Mafyetyrx4drtSnMGHSuUv5N"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/mocks/MockOracle.sol",
+    "id": 3560,
+    "exportedSymbols": {
+      "MockOracle": [
+        3559
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "33:825:16",
+    "nodes": [
+      {
+        "id": 3488,
+        "nodeType": "PragmaDirective",
+        "src": "33:24:16",
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".13"
+        ]
+      },
+      {
+        "id": 3559,
+        "nodeType": "ContractDefinition",
+        "src": "61:795:16",
+        "nodes": [
+          {
+            "id": 3491,
+            "nodeType": "VariableDeclaration",
+            "src": "88:30:16",
+            "constant": false,
+            "functionSelector": "cce99230",
+            "mutability": "mutable",
+            "name": "volatility",
+            "nameLocation": "103:10:16",
+            "scope": 3559,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 3489,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "88:7:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "3130",
+              "id": 3490,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "116:2:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_10_by_1",
+                "typeString": "int_const 10"
+              },
+              "value": "10"
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 3494,
+            "nodeType": "VariableDeclaration",
+            "src": "125:35:16",
+            "constant": false,
+            "functionSelector": "9363c812",
+            "mutability": "mutable",
+            "name": "floorPrice",
+            "nameLocation": "140:10:16",
+            "scope": 3559,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 3492,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "125:7:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "32",
+              "id": 3493,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "153:7:16",
+              "subdenomination": "ether",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_2000000000000000000_by_1",
+                "typeString": "int_const 2000000000000000000"
+              },
+              "value": "2"
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 3504,
+            "nodeType": "FunctionDefinition",
+            "src": "169:76:16",
+            "body": {
+              "id": 3503,
+              "nodeType": "Block",
+              "src": "202:43:16",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 3501,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 3499,
+                      "name": "volatility",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3491,
+                      "src": "213:10:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 3500,
+                      "name": "_volatility",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3496,
+                      "src": "226:11:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "213:24:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 3502,
+                  "nodeType": "ExpressionStatement",
+                  "src": "213:24:16"
+                }
+              ]
+            },
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "parameters": {
+              "id": 3497,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3496,
+                  "mutability": "mutable",
+                  "name": "_volatility",
+                  "nameLocation": "189:11:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3504,
+                  "src": "181:19:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3495,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "181:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "180:21:16"
+            },
+            "returnParameters": {
+              "id": 3498,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "202:0:16"
+            },
+            "scope": 3559,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "id": 3514,
+            "nodeType": "FunctionDefinition",
+            "src": "253:96:16",
+            "body": {
+              "id": 3513,
+              "nodeType": "Block",
+              "src": "306:43:16",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 3511,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 3509,
+                      "name": "volatility",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3491,
+                      "src": "317:10:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 3510,
+                      "name": "_volatility",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3506,
+                      "src": "330:11:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "317:24:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 3512,
+                  "nodeType": "ExpressionStatement",
+                  "src": "317:24:16"
+                }
+              ]
+            },
+            "functionSelector": "9fdcadc4",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setVolatility",
+            "nameLocation": "262:13:16",
+            "parameters": {
+              "id": 3507,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3506,
+                  "mutability": "mutable",
+                  "name": "_volatility",
+                  "nameLocation": "284:11:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3514,
+                  "src": "276:19:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3505,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "276:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "275:21:16"
+            },
+            "returnParameters": {
+              "id": 3508,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "306:0:16"
+            },
+            "scope": 3559,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 3524,
+            "nodeType": "FunctionDefinition",
+            "src": "357:108:16",
+            "body": {
+              "id": 3523,
+              "nodeType": "Block",
+              "src": "429:36:16",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 3521,
+                    "name": "volatility",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3491,
+                    "src": "447:10:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 3520,
+                  "id": 3522,
+                  "nodeType": "Return",
+                  "src": "440:17:16"
+                }
+              ]
+            },
+            "functionSelector": "3029cafc",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVolatility",
+            "nameLocation": "366:13:16",
+            "parameters": {
+              "id": 3517,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3516,
+                  "mutability": "mutable",
+                  "name": "_erc721",
+                  "nameLocation": "388:7:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3524,
+                  "src": "380:15:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3515,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "380:7:16",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "379:17:16"
+            },
+            "returnParameters": {
+              "id": 3520,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3519,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3524,
+                  "src": "420:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3518,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "420:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "419:9:16"
+            },
+            "scope": 3559,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 3534,
+            "nodeType": "FunctionDefinition",
+            "src": "473:96:16",
+            "body": {
+              "id": 3533,
+              "nodeType": "Block",
+              "src": "526:43:16",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 3531,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 3529,
+                      "name": "floorPrice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3494,
+                      "src": "537:10:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 3530,
+                      "name": "_floorPrice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3526,
+                      "src": "550:11:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "537:24:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 3532,
+                  "nodeType": "ExpressionStatement",
+                  "src": "537:24:16"
+                }
+              ]
+            },
+            "functionSelector": "3d05829d",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setFloorPrice",
+            "nameLocation": "482:13:16",
+            "parameters": {
+              "id": 3527,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3526,
+                  "mutability": "mutable",
+                  "name": "_floorPrice",
+                  "nameLocation": "504:11:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3534,
+                  "src": "496:19:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3525,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "496:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "495:21:16"
+            },
+            "returnParameters": {
+              "id": 3528,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "526:0:16"
+            },
+            "scope": 3559,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 3544,
+            "nodeType": "FunctionDefinition",
+            "src": "577:108:16",
+            "body": {
+              "id": 3543,
+              "nodeType": "Block",
+              "src": "649:36:16",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 3541,
+                    "name": "floorPrice",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3494,
+                    "src": "667:10:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 3540,
+                  "id": 3542,
+                  "nodeType": "Return",
+                  "src": "660:17:16"
+                }
+              ]
+            },
+            "functionSelector": "c3e214fc",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getFloorPrice",
+            "nameLocation": "586:13:16",
+            "parameters": {
+              "id": 3537,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3536,
+                  "mutability": "mutable",
+                  "name": "_erc721",
+                  "nameLocation": "608:7:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3544,
+                  "src": "600:15:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3535,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "600:7:16",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "599:17:16"
+            },
+            "returnParameters": {
+              "id": 3540,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3539,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3544,
+                  "src": "640:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3538,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "640:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "639:9:16"
+            },
+            "scope": 3559,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 3558,
+            "nodeType": "FunctionDefinition",
+            "src": "693:160:16",
+            "body": {
+              "id": 3557,
+              "nodeType": "Block",
+              "src": "803:50:16",
+              "statements": [
+                {
+                  "expression": {
+                    "components": [
+                      {
+                        "id": 3553,
+                        "name": "volatility",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3491,
+                        "src": "822:10:16",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 3554,
+                        "name": "floorPrice",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3494,
+                        "src": "834:10:16",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 3555,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "821:24:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$",
+                      "typeString": "tuple(uint256,uint256)"
+                    }
+                  },
+                  "functionReturnParameters": 3552,
+                  "id": 3556,
+                  "nodeType": "Return",
+                  "src": "814:31:16"
+                }
+              ]
+            },
+            "functionSelector": "73be031f",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVolatilityAndFloorPrice",
+            "nameLocation": "702:26:16",
+            "parameters": {
+              "id": 3547,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3546,
+                  "mutability": "mutable",
+                  "name": "_erc721",
+                  "nameLocation": "747:7:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3558,
+                  "src": "739:15:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3545,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "739:7:16",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "728:33:16"
+            },
+            "returnParameters": {
+              "id": 3552,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3549,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3558,
+                  "src": "785:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3548,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "785:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3551,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3558,
+                  "src": "794:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3550,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "794:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "784:18:16"
+            },
+            "scope": 3559,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "MockOracle",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          3559
+        ],
+        "name": "MockOracle",
+        "nameLocation": "70:10:16",
+        "scope": 3560,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 16
+}
