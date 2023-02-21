@@ -11,6 +11,45 @@
     ]
   },
   "files": {
+    "lib/forge-std/lib/ds-test/src/test.sol": {
+      "lastModificationDate": 1676986107593,
+      "contentHash": "a85cb92e605e48103a5375f81c8233f2",
+      "sourceName": "lib/forge-std/lib/ds-test/src/test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "DSTest": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "test.sol\\DSTest.json"
+        }
+      }
+    },
     "lib/forge-std/src/Base.sol": {
       "lastModificationDate": 1676986100735,
       "contentHash": "2a76a316dab98751b739247982ac8576",
@@ -110,6 +149,48 @@
         }
       }
     },
+    "lib/forge-std/src/StdAssertions.sol": {
+      "lastModificationDate": 1676986100739,
+      "contentHash": "1569588c37b3ef1f952e768274059cf7",
+      "sourceName": "lib/forge-std/src/StdAssertions.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src\\test.sol",
+        "lib/forge-std/src/StdMath.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "StdAssertions": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "StdAssertions.sol\\StdAssertions.json"
+        }
+      }
+    },
     "lib/forge-std/src/StdChains.sol": {
       "lastModificationDate": 1676986100740,
       "contentHash": "0a3551cbff68e572ad204c1257513b1a",
@@ -193,6 +274,84 @@
         },
         "StdCheatsSafe": {
           "0.8.16+commit.07a7930e.Windows.msvc": "StdCheats.sol\\StdCheatsSafe.json"
+        }
+      }
+    },
+    "lib/forge-std/src/StdError.sol": {
+      "lastModificationDate": 1676986100745,
+      "contentHash": "8c35ad419c5b8748575080db5fd58cae",
+      "sourceName": "lib/forge-std/src/StdError.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "stdError": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "StdError.sol\\stdError.json"
+        }
+      }
+    },
+    "lib/forge-std/src/StdInvariant.sol": {
+      "lastModificationDate": 1676986100746,
+      "contentHash": "3525c75dbb49f9af908a943d9ea635cf",
+      "sourceName": "lib/forge-std/src/StdInvariant.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "StdInvariant": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "StdInvariant.sol\\StdInvariant.json"
         }
       }
     },
@@ -359,6 +518,61 @@
       "artifacts": {
         "StdUtils": {
           "0.8.16+commit.07a7930e.Windows.msvc": "StdUtils.sol\\StdUtils.json"
+        }
+      }
+    },
+    "lib/forge-std/src/Test.sol": {
+      "lastModificationDate": 1676986100758,
+      "contentHash": "a7a20a0773744501719c2e36ff025454",
+      "sourceName": "lib/forge-std/src/Test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src\\test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src\\console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol"
+      ],
+      "versionRequirement": ">=0.6.2, <0.9.0",
+      "artifacts": {
+        "Test": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "Test.sol\\Test.json"
         }
       }
     },
@@ -1408,8 +1622,8 @@
       }
     },
     "src/StrikePool.sol": {
-      "lastModificationDate": 1676992038740,
-      "contentHash": "ba255b045127c5e84ed537d33d0cbc48",
+      "lastModificationDate": 1676993413274,
+      "contentHash": "684048ffb52d55a429934752317e44aa",
       "sourceName": "src/StrikePool.sol",
       "solcConfig": {
         "settings": {
@@ -1910,6 +2124,446 @@
       "artifacts": {
         "MockOracle": {
           "0.8.16+commit.07a7930e.Windows.msvc": "MockOracle.sol\\MockOracle.json"
+        }
+      }
+    },
+    "test/Buy.t.sol": {
+      "lastModificationDate": 1676994047810,
+      "contentHash": "dce67847a7e1615e19759fb9881c57d7",
+      "sourceName": "test/Buy.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src\\test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src\\Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src\\console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts\\contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts\\contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/utils/ERC721Holder.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "src\\AuctionManager.sol",
+        "src\\StrikeController.sol",
+        "src\\StrikePool.sol",
+        "src\\interfaces\\IAuctionManager.sol",
+        "src\\interfaces\\IStrikeController.sol",
+        "src\\interfaces\\IStrikePool.sol",
+        "src\\libraries\\ABDKMathQuad.sol",
+        "src\\libraries\\BlackScholes.sol",
+        "src\\libraries\\IOptionPricing.sol",
+        "src\\libraries\\OptionPricing.sol",
+        "src\\mocks\\IMockOracle.sol",
+        "src\\mocks\\MockERC20.sol",
+        "src\\mocks\\MockERC721.sol",
+        "src\\mocks\\MockOracle.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "BuyTest": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "Buy.t.sol\\BuyTest.json"
+        }
+      }
+    },
+    "test/CoverPosition.t.sol": {
+      "lastModificationDate": 1676994047130,
+      "contentHash": "daa81a557dc06b73cfda4335a9b7c31a",
+      "sourceName": "test/CoverPosition.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src\\test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src\\Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src\\console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts\\contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts\\contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/utils/ERC721Holder.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "src\\AuctionManager.sol",
+        "src\\StrikeController.sol",
+        "src\\StrikePool.sol",
+        "src\\interfaces\\IAuctionManager.sol",
+        "src\\interfaces\\IStrikeController.sol",
+        "src\\interfaces\\IStrikePool.sol",
+        "src\\libraries\\ABDKMathQuad.sol",
+        "src\\libraries\\BlackScholes.sol",
+        "src\\libraries\\IOptionPricing.sol",
+        "src\\libraries\\OptionPricing.sol",
+        "src\\mocks\\IMockOracle.sol",
+        "src\\mocks\\MockERC20.sol",
+        "src\\mocks\\MockERC721.sol",
+        "src\\mocks\\MockOracle.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "CoverPosition": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "CoverPosition.t.sol\\CoverPosition.json"
+        }
+      }
+    },
+    "test/LiquidateNFT.t.sol": {
+      "lastModificationDate": 1676994047502,
+      "contentHash": "51c6dbdaf292f3286cd72500847bc69e",
+      "sourceName": "test/LiquidateNFT.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src\\test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src\\Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src\\console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts\\contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts\\contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/utils/ERC721Holder.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "src\\AuctionManager.sol",
+        "src\\StrikeController.sol",
+        "src\\StrikePool.sol",
+        "src\\interfaces\\IAuctionManager.sol",
+        "src\\interfaces\\IStrikeController.sol",
+        "src\\interfaces\\IStrikePool.sol",
+        "src\\libraries\\ABDKMathQuad.sol",
+        "src\\libraries\\BlackScholes.sol",
+        "src\\libraries\\IOptionPricing.sol",
+        "src\\libraries\\OptionPricing.sol",
+        "src\\mocks\\IMockOracle.sol",
+        "src\\mocks\\MockERC20.sol",
+        "src\\mocks\\MockERC721.sol",
+        "src\\mocks\\MockOracle.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "LiquidateNFT": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "LiquidateNFT.t.sol\\LiquidateNFT.json"
+        }
+      }
+    },
+    "test/Restake.t.sol": {
+      "lastModificationDate": 1676994046905,
+      "contentHash": "91b9556244ef266f6b6c3bfd60834337",
+      "sourceName": "test/Restake.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src\\test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src\\Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src\\console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts\\contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts\\contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/utils/ERC721Holder.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "src\\AuctionManager.sol",
+        "src\\StrikeController.sol",
+        "src\\StrikePool.sol",
+        "src\\interfaces\\IAuctionManager.sol",
+        "src\\interfaces\\IStrikeController.sol",
+        "src\\interfaces\\IStrikePool.sol",
+        "src\\libraries\\ABDKMathQuad.sol",
+        "src\\libraries\\BlackScholes.sol",
+        "src\\libraries\\IOptionPricing.sol",
+        "src\\libraries\\OptionPricing.sol",
+        "src\\mocks\\IMockOracle.sol",
+        "src\\mocks\\MockERC20.sol",
+        "src\\mocks\\MockERC721.sol",
+        "src\\mocks\\MockOracle.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "RestakeTest": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "Restake.t.sol\\RestakeTest.json"
+        }
+      }
+    },
+    "test/Stake.t.sol": {
+      "lastModificationDate": 1676994046638,
+      "contentHash": "9e0b8e669fe38d7c5ded80f582bee4dd",
+      "sourceName": "test/Stake.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src\\test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src\\Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src\\console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts\\contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts\\contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC721/utils/ERC721Holder.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "src\\AuctionManager.sol",
+        "src\\StrikeController.sol",
+        "src\\StrikePool.sol",
+        "src\\interfaces\\IAuctionManager.sol",
+        "src\\interfaces\\IStrikeController.sol",
+        "src\\interfaces\\IStrikePool.sol",
+        "src\\libraries\\ABDKMathQuad.sol",
+        "src\\libraries\\BlackScholes.sol",
+        "src\\libraries\\IOptionPricing.sol",
+        "src\\libraries\\OptionPricing.sol",
+        "src\\mocks\\IMockOracle.sol",
+        "src\\mocks\\MockERC20.sol",
+        "src\\mocks\\MockERC721.sol",
+        "src\\mocks\\MockOracle.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "StakeTest": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "Stake.t.sol\\StakeTest.json"
         }
       }
     }

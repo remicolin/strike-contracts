@@ -154,7 +154,6 @@ contract StrikePool is Ownable, ERC721Holder {
                 hatching + (_epoch + 1) * epochduration - 2 * interval,
             "Option didn't expired yet"
         );
-        //require(floorPriceAt[_epoch] != 0, "Option didn't expired yet");
         uint256 shares = shareAtOf[_epoch][_strikePrice][msg.sender];
         uint256 totalPremiums = premiumAt[_epoch][_strikePrice];
         uint256 userPremiums = (totalPremiums * shares) /
@@ -173,7 +172,6 @@ contract StrikePool is Ownable, ERC721Holder {
                 hatching + (_epoch + 1) * epochduration - 2 * interval,
             "Option didn't expired yet"
         );
-        //require(floorPriceAt[_epoch] != 0, "Option didn't expired yet");
         uint256 shares = shareAtOf[_epoch][_strikePrice][_user];
         uint256 totalPremiums = premiumAt[_epoch][_strikePrice];
         uint256 userPremiums = (totalPremiums * shares) /
@@ -250,7 +248,6 @@ contract StrikePool is Ownable, ERC721Holder {
                 hatching + (getEpoch_2e() + 1) * epochduration - 2 * interval,
             "Option didn't expired yet"
         );
-        //require(floorPriceAt[epoch] == 0, "Option expired");
 
         // Get floor price and volatility
         (uint256 volatility, uint256 floorPrice) = IMockOracle(
