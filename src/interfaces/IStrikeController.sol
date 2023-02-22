@@ -16,7 +16,7 @@ interface IStrikeController {
 
     /*** Call PoolContract - getters functions  ***/
 
-    function getfloorprice(
+    function getFloorPrice(
         address _pool,
         uint256 _epoch
     ) external view returns (uint256);

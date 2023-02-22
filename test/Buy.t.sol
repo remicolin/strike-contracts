@@ -85,7 +85,9 @@ contract BuyTest is Test {
         vm.startPrank(alice);
         vm.warp(epochduration + 1);
         strikePool.buyOption(2 ether);
-        IStrikePool.Option memory option = strikePool.getOption(tokenMinted_bis);
+        IStrikePool.Option memory option = strikePool.getOption(
+            tokenMinted_bis
+        );
         assertEq(option.buyer, alice);
         vm.stopPrank();
     }

@@ -6,7 +6,6 @@ interface IStrikePool {
         address writer;
         address buyer;
         uint256 sPrice;
-        uint256 premium;
         uint256 epoch;
         bool covered;
         bool liquidated;
@@ -51,7 +50,7 @@ interface IStrikePool {
 
     /*** Getters ***/
 
-    function getfloorprice(uint256 _epoch) external view returns (uint256);
+    function getFloorPrice(uint256 _epoch) external view returns (uint256);
 
     function getEpoch_2e() external view returns (uint256);
 

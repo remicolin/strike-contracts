@@ -75,11 +75,11 @@ contract StrikeController is Ownable {
 
     /*** Call PoolContract - getters functions  ***/
 
-    function getfloorprice(
+    function getFloorPrice(
         address _pool,
         uint256 _epoch
     ) public view returns (uint256) {
-        return IStrikePool(_pool).getfloorprice(_epoch);
+        return IStrikePool(_pool).getFloorPrice(_epoch);
     }
 
     function getEpoch_2e(address _pool) public view returns (uint256) {

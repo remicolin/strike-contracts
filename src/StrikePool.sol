@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: unlicensed
-pragma solidity ^0.8.13;
+pragma solidity 0.8.16;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "./interfaces/IAuctionManager.sol";
 import "./interfaces/IStrikeController.sol";
 import "./libraries/IOptionPricing.sol";
@@ -14,7 +16,9 @@ import "./mocks/IMockOracle.sol";
 /// @notice Strike vault contract - NFT Option Protocol
 /// @author Rems0
 
-contract StrikePool is Ownable, ERC721Holder {
+contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
+    using SafeERC20 for IERC20;
+
     /*** Constants ***/
     address public erc721;
     address public erc20;
@@ -23,7 +27,6 @@ contract StrikePool is Ownable, ERC721Holder {
     bool public liquidationInterrupted = false;
     uint256 immutable epochduration = 14 days;
     uint256 immutable interval = 1 days;
-    uint256 immutable firstBidRatio = 800;
     uint256 public hatching;
     /*** Owner variables ***/
     mapping(uint256 => mapping(uint256 => bool)) strikePriceAt;
@@ -83,13 +86,15 @@ contract StrikePool is Ownable, ERC721Holder {
         address writer;
         address buyer;
         uint256 sPrice;
-        uint256 premium;
         uint256 epoch;
         bool covered;
         bool liquidated;
     }
 
     constructor(address _erc721, address _erc20, address _auctionManager) {
+        //require(_erc721 != address(0), "ERC721 address is 0");
+        //require(_erc20 != address(0), "ERC20 address is 0");
+        //require(_auctionManager != address(0), "AuctionManager address is 0");
         hatching = block.timestamp;
         erc721 = _erc721;
         erc20 = _erc20;
@@ -101,26 +106,29 @@ contract StrikePool is Ownable, ERC721Holder {
     /*** Stakers functions ***/
 
     function stake(uint256 _tokenId, uint256 _strikePrice) public {
-        uint256 epoch = getEpoch_2e() + 1;
-        require(strikePriceAt[epoch][_strikePrice], "Wrong strikePrice");
+        uint256 nepoch = getEpoch_2e() + 1;
+        require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
         // Transfer the NFT to the pool and write the option
         IERC721(erc721).safeTransferFrom(msg.sender, address(this), _tokenId);
         optionAt[_tokenId].sPrice = _strikePrice;
         optionAt[_tokenId].writer = msg.sender;
-        optionAt[_tokenId].epoch = epoch;
+        optionAt[_tokenId].epoch = nepoch;
         optionAt[_tokenId].buyer = address(0);
         // Push the tokenId into a list for the epoch and increment shares of writer for the epoch
-        NFTsAt[epoch][_strikePrice].push(_tokenId);
-        ++shareAtOf[epoch][_strikePrice][msg.sender];
-        emit Stake(epoch, _tokenId, _strikePrice, msg.sender);
+        NFTsAt[nepoch][_strikePrice].push(_tokenId);
+        ++shareAtOf[nepoch][_strikePrice][msg.sender];
+        emit Stake(nepoch, _tokenId, _strikePrice, msg.sender);
     }
 
-    function restake(uint256 _tokenId, uint256 _strikePrice) public {
+    function restake(
+        uint256 _tokenId,
+        uint256 _strikePrice
+    ) public nonReentrant {
         Option memory option = optionAt[_tokenId];
-        uint256 epoch = getEpoch_2e() + 1;
+        uint256 nepoch = getEpoch_2e() + 1;
         require(
-            block.timestamp - hatching >
-                option.epoch * epochduration - 2 * interval,
+            block.timestamp >
+                hatching + (option.epoch + 1) * epochduration - 2 * interval,
             "Option has not expired"
         );
         require(option.writer == msg.sender, "You are not the owner");
@@ -134,18 +142,20 @@ contract StrikePool is Ownable, ERC721Holder {
                 option.buyer == address(0),
             "Cover your position"
         );
-        require(strikePriceAt[epoch][_strikePrice], "Wrong strikePrice");
-        // Claim premiums if user has some to request
-        if (shareAtOf[option.epoch][option.sPrice][msg.sender] > 0) {
-            _claimPremiums(option.epoch, option.sPrice, msg.sender);
-        }
+        require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
+
         // Re-write the option
+        optionAt[_tokenId].epoch = nepoch;
         optionAt[_tokenId].sPrice = _strikePrice;
-        optionAt[_tokenId].epoch = epoch;
         optionAt[_tokenId].buyer = address(0);
-        NFTsAt[epoch][_strikePrice].push(_tokenId);
-        ++shareAtOf[epoch][_strikePrice][msg.sender];
-        emit ReStake(epoch, _tokenId, _strikePrice, msg.sender);
+        NFTsAt[nepoch][_strikePrice].push(_tokenId);
+        ++shareAtOf[nepoch][_strikePrice][msg.sender];
+        // Claim premiums if user has some to request
+
+        if (shareAtOf[option.epoch][option.sPrice][msg.sender] > 0) {
+            _claimPremiums_Cb4(option.epoch, option.sPrice, msg.sender);
+        }
+        emit ReStake(nepoch, _tokenId, _strikePrice, msg.sender);
     }
 
     function claimPremiums(uint256 _epoch, uint256 _strikePrice) public {
@@ -154,29 +164,19 @@ contract StrikePool is Ownable, ERC721Holder {
                 hatching + (_epoch + 1) * epochduration - 2 * interval,
             "Option didn't expired yet"
         );
-        uint256 shares = shareAtOf[_epoch][_strikePrice][msg.sender];
-        uint256 totalPremiums = premiumAt[_epoch][_strikePrice];
-        uint256 userPremiums = (totalPremiums * shares) /
-            NFTsAt[_epoch][_strikePrice].length;
-        shareAtOf[_epoch][_strikePrice][msg.sender] = 0;
-        IERC20(erc20).transfer(msg.sender, userPremiums);
+        _claimPremiums_Cb4(_epoch, _strikePrice, msg.sender);
     }
 
-    function _claimPremiums(
+    function _claimPremiums_Cb4(
         uint256 _epoch,
         uint256 _strikePrice,
         address _user
     ) internal {
-        require(
-            block.timestamp >
-                hatching + (_epoch + 1) * epochduration - 2 * interval,
-            "Option didn't expired yet"
-        );
         uint256 shares = shareAtOf[_epoch][_strikePrice][_user];
+        shareAtOf[_epoch][_strikePrice][_user] = 0;
         uint256 totalPremiums = premiumAt[_epoch][_strikePrice];
         uint256 userPremiums = (totalPremiums * shares) /
             NFTsAt[_epoch][_strikePrice].length;
-        shareAtOf[_epoch][_strikePrice][_user] = 0;
         IERC20(erc20).transfer(_user, userPremiums);
     }
 
@@ -227,15 +227,15 @@ contract StrikePool is Ownable, ERC721Holder {
         );
         // Claim premiums if user has some to request
         if (shareAtOf[option.epoch][option.sPrice][msg.sender] > 0) {
-            _claimPremiums(option.epoch, option.sPrice, msg.sender);
+            _claimPremiums_Cb4(option.epoch, option.sPrice, msg.sender);
         }
         // Transfer back NFT to owner
         IERC721(erc721).safeTransferFrom(address(this), msg.sender, _tokenId);
     }
 
     /*** Buyers functions ***/
-
-    function buyOption(uint256 _strikePrice) public {
+    // 146701 gas
+    function buyOption(uint256 _strikePrice) public nonReentrant {
         uint256 epoch = getEpoch_2e();
         require(strikePriceAt[epoch][_strikePrice], "Wrong strikePrice");
         require(
@@ -245,7 +245,7 @@ contract StrikePool is Ownable, ERC721Holder {
         );
         require(
             block.timestamp <
-                hatching + (getEpoch_2e() + 1) * epochduration - 2 * interval,
+                hatching + (epoch + 1) * epochduration - 2 * interval,
             "Option didn't expired yet"
         );
 
@@ -328,18 +328,17 @@ contract StrikePool is Ownable, ERC721Holder {
         optionAt[_tokenId].liquidated = true;
         optionAt[_tokenId].writer = address(0);
         uint256 debt = floorPriceAt[epoch] - option.sPrice;
-        uint256 firstBid = (floorPriceAt[epoch] * firstBidRatio) / 1000;
         IAuctionManager(auctionManager).start(
             erc721,
             _tokenId,
-            firstBid,
+            floorPriceAt[epoch],
             option.writer,
             option.buyer,
             debt
         );
         emit LiquidateNFT(
             _tokenId,
-            firstBid,
+            floorPriceAt[epoch],
             option.writer,
             option.buyer,
             debt
@@ -398,7 +397,7 @@ contract StrikePool is Ownable, ERC721Holder {
     }
 
     /*** Getters ***/
-    function getfloorprice(uint256 _epoch) public view returns (uint256) {
+    function getFloorPrice(uint256 _epoch) public view returns (uint256) {
         return floorPriceAt[_epoch];
     }
 

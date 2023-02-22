@@ -938,6 +938,88 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+      "lastModificationDate": 1676990130135,
+      "contentHash": "0b41d8468402af736baf46f039bd111d",
+      "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IERC20Permit": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "IERC20Permit.sol\\IERC20Permit.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol": {
+      "lastModificationDate": 1676990130148,
+      "contentHash": "f0a549e0819306f58fa7b6e4d65ef410",
+      "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "SafeERC20": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "SafeERC20.sol\\SafeERC20.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol": {
       "lastModificationDate": 1676990130180,
       "contentHash": "2777664bb3778914a465592793a19830",
@@ -1521,8 +1603,8 @@
       }
     },
     "src/AuctionManager.sol": {
-      "lastModificationDate": 1676991860973,
-      "contentHash": "0dee89c7db05dc9e771c62aaede935ca",
+      "lastModificationDate": 1677086594835,
+      "contentHash": "3fdfa605831c790d002bdfbb34917595",
       "sourceName": "src/AuctionManager.sol",
       "solcConfig": {
         "settings": {
@@ -1555,7 +1637,10 @@
         "lib/openzeppelin-contracts\\contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts\\contracts/security/ReentrancyGuard.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
         "src\\interfaces\\IStrikeController.sol"
@@ -1568,8 +1653,8 @@
       }
     },
     "src/StrikeController.sol": {
-      "lastModificationDate": 1676992346240,
-      "contentHash": "a26ceb455f5d1f539c27a2efe8de836a",
+      "lastModificationDate": 1676994640031,
+      "contentHash": "8e0e268234424a55ddd9c0079134c379",
       "sourceName": "src/StrikeController.sol",
       "solcConfig": {
         "settings": {
@@ -1602,9 +1687,12 @@
         "lib/openzeppelin-contracts\\contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts\\contracts/security/ReentrancyGuard.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/utils/ERC721Holder.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
         "src\\StrikePool.sol",
@@ -1622,8 +1710,8 @@
       }
     },
     "src/StrikePool.sol": {
-      "lastModificationDate": 1676993413274,
-      "contentHash": "684048ffb52d55a429934752317e44aa",
+      "lastModificationDate": 1677092860145,
+      "contentHash": "70231e6ad478a9282610924ebf3e1f61",
       "sourceName": "src/StrikePool.sol",
       "solcConfig": {
         "settings": {
@@ -1654,10 +1742,14 @@
       },
       "imports": [
         "lib/openzeppelin-contracts\\contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts\\contracts/security/ReentrancyGuard.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/utils/ERC721Holder.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
         "src\\interfaces\\IAuctionManager.sol",
@@ -1665,7 +1757,7 @@
         "src\\libraries\\IOptionPricing.sol",
         "src\\mocks\\IMockOracle.sol"
       ],
-      "versionRequirement": "^0.8.13",
+      "versionRequirement": "=0.8.16",
       "artifacts": {
         "StrikePool": {
           "0.8.16+commit.07a7930e.Windows.msvc": "StrikePool.sol\\StrikePool.json"
@@ -1712,8 +1804,8 @@
       }
     },
     "src/interfaces/IStrikeController.sol": {
-      "lastModificationDate": 1676991786742,
-      "contentHash": "f5bd99fb8ca92581507b98b081c15b8c",
+      "lastModificationDate": 1676994640732,
+      "contentHash": "b74cee5e317156a9757dbe2372db3532",
       "sourceName": "src/interfaces/IStrikeController.sol",
       "solcConfig": {
         "settings": {
@@ -1751,8 +1843,8 @@
       }
     },
     "src/interfaces/IStrikePool.sol": {
-      "lastModificationDate": 1676991784497,
-      "contentHash": "9f2e532d4952a388b7719d8afefd8f4b",
+      "lastModificationDate": 1676994640816,
+      "contentHash": "06be559dea160f9dcaadf6629039032a",
       "sourceName": "src/interfaces/IStrikePool.sol",
       "solcConfig": {
         "settings": {
@@ -2128,8 +2220,8 @@
       }
     },
     "test/Buy.t.sol": {
-      "lastModificationDate": 1676994047810,
-      "contentHash": "dce67847a7e1615e19759fb9881c57d7",
+      "lastModificationDate": 1677086947596,
+      "contentHash": "07f146c805ea6e35b4de874dcb7d849a",
       "sourceName": "test/Buy.t.sol",
       "solcConfig": {
         "settings": {
@@ -2180,6 +2272,8 @@
         "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
@@ -2268,6 +2362,8 @@
         "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
@@ -2356,6 +2452,8 @@
         "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
@@ -2444,6 +2542,8 @@
         "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",
@@ -2532,6 +2632,8 @@
         "lib/openzeppelin-contracts\\contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts\\contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts\\contracts/token/ERC721/IERC721Receiver.sol",

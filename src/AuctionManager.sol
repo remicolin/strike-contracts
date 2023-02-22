@@ -5,9 +5,12 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "./interfaces/IStrikeController.sol";
 
 contract AuctionManager is Ownable, ReentrancyGuard {
+    using SafeERC20 for IERC20;
+
     event Start(uint256 _nftId, uint256 startingBid);
     event End(address actualBidder, uint256 highestBid);
     event Bid(address indexed sender, uint256 amount);
@@ -18,6 +21,8 @@ contract AuctionManager is Ownable, ReentrancyGuard {
 
     uint256 public interval = 1 days / 4;
     uint256 public liquidationRatio = 900;
+    uint256 public firstBidRatio = 800;
+    uint256 public minBidRatio = 1015;
 
     struct Auction {
         uint256 highestBid;
@@ -48,7 +53,7 @@ contract AuctionManager is Ownable, ReentrancyGuard {
     function start(
         address _tokenAddress,
         uint256 _nftId,
-        uint256 _startingBid,
+        uint256 _floorPrice,
         address _optionWriter,
         address _optionOwner,
         uint256 _debt
@@ -63,13 +68,13 @@ contract AuctionManager is Ownable, ReentrancyGuard {
         );
         require(!auction.isGoing, "Already started[_nftId]!");
         auction.isGoing = true;
-        auction.highestBid = _startingBid;
+        auction.highestBid = (_floorPrice * firstBidRatio) / 1000;
         auction.actualBidder = address(0);
         auction.tlastBid = block.timestamp;
         auction.optionWriter = _optionWriter;
         auction.optionOwner = _optionOwner;
         auction.debt = _debt;
-        emit Start(_nftId, _startingBid);
+        emit Start(_nftId, (_floorPrice * firstBidRatio) / 1000);
     }
 
     function bid(
@@ -86,7 +91,8 @@ contract AuctionManager is Ownable, ReentrancyGuard {
             "Action ended"
         );
         require(
-            _bidAmount + auction.bids[_user] > auction.highestBid,
+            _bidAmount + auction.bids[_user] >
+                ((auction.highestBid) * minBidRatio) / 1000,
             "The total bid is lower than actual maxBid"
         );
         require(
@@ -105,7 +111,7 @@ contract AuctionManager is Ownable, ReentrancyGuard {
         address _tokenAddress,
         uint256 _nftId,
         address _user
-    ) external payable nonReentrant {
+    ) external nonReentrant {
         Auction storage auction = auctions[_tokenAddress][_nftId];
         require(_user != auction.actualBidder, "You are the actual bidder");
         uint256 bal = auction.bids[_user];
@@ -171,5 +177,37 @@ contract AuctionManager is Ownable, ReentrancyGuard {
             isGoing: auction.isGoing
         });
         return auctionLight;
+    }
+
+    /*** Admins functions ***/
+
+    function setLiquidationRatio(uint256 _liquidationRatio) public onlyOwner {
+        require(
+            _liquidationRatio <= 1000,
+            "Liquidation ratio must be less than 1000"
+        );
+        require(
+            _liquidationRatio > 0,
+            "Liquidation ratio must be greater than 0"
+        );
+        liquidationRatio = _liquidationRatio;
+    }
+
+    function setFirstBidRatio(uint256 _firstBidRatio) public onlyOwner {
+        require(
+            _firstBidRatio <= 1000,
+            "First bid ratio must be less than 1000"
+        );
+        require(_firstBidRatio > 0, "First bid ratio must be greater than 0");
+        firstBidRatio = _firstBidRatio;
+    }
+
+    function setMinBidRatio(uint256 _minBidRatio) public onlyOwner {
+        require(
+            _minBidRatio >= 1000,
+            "Min bid ratio must be greater than 1000"
+        );
+        require(_minBidRatio < 2000, "Min bid ratio must be less than 2000");
+        minBidRatio = _minBidRatio;
     }
 }
