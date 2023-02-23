@@ -91,4 +91,15 @@ contract BuyTest is Test {
         strikePoolProxy.buyOption(2 ether);
         vm.stopPrank();
     }
+
+    function testSetNewAuctionManager() public {
+        strikePoolProxy.setAuctionManager(address(0));
+    }
+
+    function testSetNewAuctionManagerFail() public {
+        vm.startPrank(alice);
+        vm.expectRevert(bytes("msg.sender is not admin"));
+        strikePoolProxy.setAuctionManager(address(0));
+        vm.stopPrank();
+    }
 }

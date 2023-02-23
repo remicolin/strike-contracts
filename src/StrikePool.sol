@@ -7,15 +7,19 @@ import "@openzeppelin-up/contracts/token/ERC721/utils/ERC721HolderUpgradeable.so
 import "@openzeppelin-up/contracts/security/ReentrancyGuardUpgradeable.sol";
 import "@openzeppelin-up/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol";
 import "./interfaces/IAuctionManager.sol";
-import "./interfaces/IStrikeController.sol";
 import "./libraries/IOptionPricing.sol";
 import "./mocks/IMockOracle.sol";
 import {Initializable} from "@openzeppelin-up/contracts/proxy/utils/Initializable.sol";
+import {AccessControlUpgradeable} from "@openzeppelin-up/contracts/access/AccessControlUpgradeable.sol";
 
 /// @notice Strike vault contract - NFT Option Protocol
 /// @author Rems0
 
-contract StrikePool is ERC721HolderUpgradeable, ReentrancyGuardUpgradeable {
+contract StrikePool is
+    ERC721HolderUpgradeable,
+    ReentrancyGuardUpgradeable,
+    AccessControlUpgradeable
+{
     using SafeERC20Upgradeable for IERC20Upgradeable;
 
     /*** Constants ***/
@@ -23,6 +27,11 @@ contract StrikePool is ERC721HolderUpgradeable, ReentrancyGuardUpgradeable {
     address public erc20;
     address public strikeController;
     address public auctionManager;
+    address public optionPricing;
+    address public volatilityOracle;
+
+    bytes32 public constant FLOOR_PRICE_PROVIDER_ROLE =
+        keccak256("FLOOR_PRICE_PROVIDER_ROLE");
 
     bool public liquidationInterrupted;
     uint256 immutable epochduration = 14 days;
@@ -94,18 +103,32 @@ contract StrikePool is ERC721HolderUpgradeable, ReentrancyGuardUpgradeable {
     function initialize(
         address _erc721,
         address _erc20,
-        address _auctionManager
+        address _auctionManager,
+        address _optionPricing,
+        address _volatilityOracle,
+        address _admin
     ) public initializer {
         require(_erc721 != address(0), "ERC721 address is 0");
         require(_erc20 != address(0), "ERC20 address is 0");
         require(_auctionManager != address(0), "AuctionManager address is 0");
+        require(_optionPricing != address(0), "OptionPricing address is 0");
+        require(
+            _volatilityOracle != address(0),
+            "VolatilityOracle address is 0"
+        );
+        require(_admin != address(0), "Admin address is 0");
         __ERC721Holder_init();
         __ReentrancyGuard_init();
+        __AccessControl_init();
         hatching = block.timestamp;
         erc721 = _erc721;
         erc20 = _erc20;
         strikeController = msg.sender;
         auctionManager = _auctionManager;
+        optionPricing = _optionPricing;
+        volatilityOracle = _volatilityOracle;
+        _setupRole(DEFAULT_ADMIN_ROLE, _admin);
+        _setupRole(FLOOR_PRICE_PROVIDER_ROLE, _admin);
         IERC721Upgradeable(erc721).setApprovalForAll(_auctionManager, true);
     }
 
@@ -254,7 +277,7 @@ contract StrikePool is ERC721HolderUpgradeable, ReentrancyGuardUpgradeable {
     }
 
     /*** Buyers functions ***/
-    // 146701 gas
+    // 245290 gas
     function buyOption(uint256 _strikePrice) public nonReentrant {
         uint256 epoch = getEpoch_2e();
         require(strikePriceAt[epoch][_strikePrice], "Wrong strikePrice");
@@ -270,19 +293,16 @@ contract StrikePool is ERC721HolderUpgradeable, ReentrancyGuardUpgradeable {
         );
 
         // Get floor price and volatility
-        (uint256 volatility, uint256 floorPrice) = IMockOracle(
-            IStrikeController(strikeController).getVolatilityOracle()
-        ).getVolatilityAndFloorPrice(erc721);
+        (uint256 volatility, uint256 floorPrice) = IMockOracle(volatilityOracle)
+            .getVolatilityAndFloorPrice(erc721);
 
-        uint256 optionPrice = IOptionPricing(
-            IStrikeController(strikeController).getOptionPricing()
-        ).getOptionPrice(
-                false,
-                hatching + (epoch + 1) * epochduration,
-                _strikePrice,
-                floorPrice,
-                volatility
-            );
+        uint256 optionPrice = IOptionPricing(optionPricing).getOptionPrice(
+            false,
+            hatching + (epoch + 1) * epochduration,
+            _strikePrice,
+            floorPrice,
+            volatility
+        );
 
         require(
             IERC20Upgradeable(erc20).transferFrom(
@@ -398,25 +418,42 @@ contract StrikePool is ERC721HolderUpgradeable, ReentrancyGuardUpgradeable {
     function setStrikePriceAt(
         uint256 _epoch,
         uint256[] memory _strikePrices
-    ) public {
+    ) public onlyProvider {
         for (uint256 i = 0; i != _strikePrices.length; ++i) {
             strikePriceAt[_epoch][_strikePrices[i]] = true;
         }
         emit SetStrikePrice(_epoch, _strikePrices);
     }
 
-    function setfloorpriceAt(uint256 _epoch, uint256 _floorPrice) public {
+    function setfloorpriceAt(
+        uint256 _epoch,
+        uint256 _floorPrice
+    ) public onlyProvider {
         require(_floorPrice > 0, "Floor price < 0");
         floorPriceAt[_epoch] = _floorPrice;
         emit SetFloorPrice(_epoch, _floorPrice);
     }
 
-    function setAuctionManager(address _auctionManager) public {
+    function setAuctionManager(address _auctionManager) public onlyAdmin {
         auctionManager = _auctionManager;
     }
 
-    function setLiquidationInterrupted(bool _liquidationInterrupted) public {
+    function setOptionPricing(address _optionPricing) public onlyAdmin {
+        optionPricing = _optionPricing;
+    }
+
+    function setVolatilityOracle(address _volatilityOracle) public onlyAdmin {
+        volatilityOracle = _volatilityOracle;
+    }
+
+    function setLiquidationInterrupted(
+        bool _liquidationInterrupted
+    ) public onlyAdmin {
         liquidationInterrupted = _liquidationInterrupted;
+    }
+
+    function setFloorPriceProvider(address _provider) public onlyAdmin {
+        _grantRole(FLOOR_PRICE_PROVIDER_ROLE, _provider);
     }
 
     /*** Getters ***/
@@ -464,5 +501,23 @@ contract StrikePool is ERC721HolderUpgradeable, ReentrancyGuardUpgradeable {
         return
             NFTsAt[_epoch][_strikePrice].length -
             NFTtradedAt[_epoch][_strikePrice];
+    }
+
+    /*** Modifiers ***/
+    modifier onlyAdmin() {
+        require(
+            hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
+            "msg.sender is not admin"
+        );
+        _;
+    }
+
+    modifier onlyProvider() {
+        require(
+            hasRole(FLOOR_PRICE_PROVIDER_ROLE, msg.sender) ||
+                hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
+            "msg.sender is not floor price provider"
+        );
+        _;
     }
 }

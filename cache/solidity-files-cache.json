@@ -1852,6 +1852,94 @@
         }
       }
     },
+    "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol": {
+      "lastModificationDate": 1677108549535,
+      "contentHash": "211a42ad6437f567d8f77ae903e87b8f",
+      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "AccessControlUpgradeable": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "AccessControlUpgradeable.sol\\AccessControlUpgradeable.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol": {
+      "lastModificationDate": 1677108549537,
+      "contentHash": "e9e43f4ad2c0441dfebb3ad8a54fac53",
+      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IAccessControlUpgradeable": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "IAccessControlUpgradeable.sol\\IAccessControlUpgradeable.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol": {
       "lastModificationDate": 1677108549781,
       "contentHash": "a04fa84915ef1acbe64d056274abca25",
@@ -2218,6 +2306,133 @@
         }
       }
     },
+    "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1677108549928,
+      "contentHash": "33ef277511626ddb506fcfeee5c90c85",
+      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ContextUpgradeable": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "ContextUpgradeable.sol\\ContextUpgradeable.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol": {
+      "lastModificationDate": 1677108549940,
+      "contentHash": "b044fc7731ce09a4c50a0b1a551860fb",
+      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "StringsUpgradeable": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "StringsUpgradeable.sol\\StringsUpgradeable.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol": {
+      "lastModificationDate": 1677108549961,
+      "contentHash": "5555c4673fd9011219a7e691c8de2fbf",
+      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ERC165Upgradeable": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "ERC165Upgradeable.sol\\ERC165Upgradeable.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol": {
       "lastModificationDate": 1677108549965,
       "contentHash": "3c798c02e4b789f03d8191ceae707a94",
@@ -2254,6 +2469,84 @@
       "artifacts": {
         "IERC165Upgradeable": {
           "0.8.16+commit.07a7930e.Windows.msvc": "IERC165Upgradeable.sol\\IERC165Upgradeable.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol": {
+      "lastModificationDate": 1677108549969,
+      "contentHash": "88747a8c0bbecbaff75506bf3d27f2c5",
+      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "MathUpgradeable": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "MathUpgradeable.sol\\MathUpgradeable.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol": {
+      "lastModificationDate": 1677108549974,
+      "contentHash": "44b75f17578e545d568065f12e10e1f7",
+      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "SignedMathUpgradeable": {
+          "0.8.16+commit.07a7930e.Windows.msvc": "SignedMathUpgradeable.sol\\SignedMathUpgradeable.json"
         }
       }
     },
@@ -2360,8 +2653,8 @@
       }
     },
     "src/StrikeController.sol": {
-      "lastModificationDate": 1677190882108,
-      "contentHash": "5338a43105ae1ccc1eeedd2a4941b008",
+      "lastModificationDate": 1677194106858,
+      "contentHash": "6549e6f9101f8c4f75ae9246ea8372bf",
       "sourceName": "src/StrikeController.sol",
       "solcConfig": {
         "settings": {
@@ -2413,8 +2706,8 @@
       }
     },
     "src/StrikePool.sol": {
-      "lastModificationDate": 1677109739866,
-      "contentHash": "b5e36a4079cd659e4c2d8e859beb7f3f",
+      "lastModificationDate": 1677194195920,
+      "contentHash": "1b89c2b8f9561b2a84f29f292a584718",
       "sourceName": "src/StrikePool.sol",
       "solcConfig": {
         "settings": {
@@ -2444,6 +2737,8 @@
         }
       },
       "imports": [
+        "lib/openzeppelin-contracts-upgradeable\\contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/security/ReentrancyGuardUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC20/IERC20Upgradeable.sol",
@@ -2453,9 +2748,13 @@
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/IERC721Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
         "src\\interfaces\\IAuctionManager.sol",
-        "src\\interfaces\\IStrikeController.sol",
         "src\\libraries\\IOptionPricing.sol",
         "src\\mocks\\IMockOracle.sol"
       ],
@@ -2996,6 +3295,8 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts-upgradeable\\contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/security/ReentrancyGuardUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC20/IERC20Upgradeable.sol",
@@ -3005,7 +3306,12 @@
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/IERC721Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
         "src\\AuctionManager.sol",
         "src\\StrikeController.sol",
         "src\\StrikePool.sol",
@@ -3103,6 +3409,8 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts-upgradeable\\contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/security/ReentrancyGuardUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC20/IERC20Upgradeable.sol",
@@ -3112,7 +3420,12 @@
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/IERC721Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
         "src\\AuctionManager.sol",
         "src\\StrikeController.sol",
         "src\\StrikePool.sol",
@@ -3210,6 +3523,8 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts-upgradeable\\contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/security/ReentrancyGuardUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC20/IERC20Upgradeable.sol",
@@ -3219,7 +3534,12 @@
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/IERC721Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
         "src\\AuctionManager.sol",
         "src\\StrikeController.sol",
         "src\\StrikePool.sol",
@@ -3317,6 +3637,8 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts-upgradeable\\contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/security/ReentrancyGuardUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC20/IERC20Upgradeable.sol",
@@ -3326,7 +3648,12 @@
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/IERC721Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
         "src\\AuctionManager.sol",
         "src\\StrikeController.sol",
         "src\\StrikePool.sol",
@@ -3424,6 +3751,8 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts-upgradeable\\contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/security/ReentrancyGuardUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC20/IERC20Upgradeable.sol",
@@ -3433,7 +3762,12 @@
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/IERC721Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
         "src\\AuctionManager.sol",
         "src\\StrikeController.sol",
         "src\\StrikePool.sol",
@@ -3457,8 +3791,8 @@
       }
     },
     "test/proxy/Stake.t.sol": {
-      "lastModificationDate": 1677191074203,
-      "contentHash": "cb00d217e6fc914b5141d6da00f62a5b",
+      "lastModificationDate": 1677194464662,
+      "contentHash": "bc9443fe7f6ff4f104944cd59d253d81",
       "sourceName": "test/proxy/Stake.t.sol",
       "solcConfig": {
         "settings": {
@@ -3531,6 +3865,8 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts\\contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts-upgradeable\\contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/security/ReentrancyGuardUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC20/IERC20Upgradeable.sol",
@@ -3540,7 +3876,12 @@
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/IERC721Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable\\contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
         "src\\AuctionManager.sol",
         "src\\StrikeController.sol",
         "src\\StrikePool.sol",

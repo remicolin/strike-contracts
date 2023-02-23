@@ -25,22 +25,24 @@ contract StrikeController is Ownable, ProxyAdmin {
         address _erc721
     ) public onlyOwner returns (address pool) {
         require(address(pools[_erc721]) == address(0));
-        //StrikePool jpegxPool = new StrikePool(_erc721, erc20, auctionManager);
-        TransparentUpgradeableProxy jpegxPool = new TransparentUpgradeableProxy(
-            poolImplementation,
-            address(this),
-            abi.encodeWithSignature(
-                "initialize(address,address,address)",
-                _erc721,
-                erc20,
-                auctionManager
-            )
-        );
-        /*
-        pools[_erc721] = address(jpegxPool);
-        erc721.push(_erc721);*/
-        emit PoolDeployed(_erc721, erc20, address(jpegxPool));
-        return address(jpegxPool);
+        TransparentUpgradeableProxy strikePoolProxy = new TransparentUpgradeableProxy(
+                poolImplementation,
+                address(this),
+                abi.encodeWithSignature(
+                    "initialize(address,address,address,address,address,address)",
+                    _erc721,
+                    erc20,
+                    auctionManager,
+                    optionPricing,
+                    volatilityOracle,
+                    msg.sender
+                )
+            );
+
+        pools[_erc721] = strikePoolProxy;
+        erc721.push(_erc721);
+        emit PoolDeployed(_erc721, erc20, address(strikePoolProxy));
+        return address(strikePoolProxy);
     }
 
     function getPoolFromTokenAddress(
