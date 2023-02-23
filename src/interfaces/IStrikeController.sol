@@ -59,4 +59,6 @@ interface IStrikeController {
     ) external;
 
     function endAuction(address _tokenAddress, uint256 _tokenId) external;
+
+    function setPoolImplementation(address _poolImplementation) external;
 }

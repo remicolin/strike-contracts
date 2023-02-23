@@ -11,6 +11,12 @@ interface IStrikePool {
         bool liquidated;
     }
 
+    function initialize(
+        address _erc721,
+        address _erc20,
+        address _auctionManager
+    ) external;
+
     /*** Staker functions ***/
 
     function stake(uint256 _tokenId, uint256 _strikePrice) external;

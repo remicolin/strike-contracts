@@ -1,30 +1,30 @@
 // SPDX-License-Identifier: unlicensed
 pragma solidity 0.8.16;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
-import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin-up/contracts/token/ERC721/IERC721Upgradeable.sol";
+import "@openzeppelin-up/contracts/token/ERC20/IERC20Upgradeable.sol";
+import "@openzeppelin-up/contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol";
+import "@openzeppelin-up/contracts/security/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin-up/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol";
 import "./interfaces/IAuctionManager.sol";
 import "./interfaces/IStrikeController.sol";
 import "./libraries/IOptionPricing.sol";
 import "./mocks/IMockOracle.sol";
+import {Initializable} from "@openzeppelin-up/contracts/proxy/utils/Initializable.sol";
 
 /// @notice Strike vault contract - NFT Option Protocol
 /// @author Rems0
 
-contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
-    using SafeERC20 for IERC20;
+contract StrikePool is ERC721HolderUpgradeable, ReentrancyGuardUpgradeable {
+    using SafeERC20Upgradeable for IERC20Upgradeable;
 
     /*** Constants ***/
     address public erc721;
     address public erc20;
     address public strikeController;
     address public auctionManager;
-    bool public liquidationInterrupted = false;
+
+    bool public liquidationInterrupted;
     uint256 immutable epochduration = 14 days;
     uint256 immutable interval = 1 days;
     uint256 public hatching;
@@ -91,16 +91,22 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
         bool liquidated;
     }
 
-    constructor(address _erc721, address _erc20, address _auctionManager) {
-        //require(_erc721 != address(0), "ERC721 address is 0");
-        //require(_erc20 != address(0), "ERC20 address is 0");
-        //require(_auctionManager != address(0), "AuctionManager address is 0");
+    function initialize(
+        address _erc721,
+        address _erc20,
+        address _auctionManager
+    ) public initializer {
+        require(_erc721 != address(0), "ERC721 address is 0");
+        require(_erc20 != address(0), "ERC20 address is 0");
+        require(_auctionManager != address(0), "AuctionManager address is 0");
+        __ERC721Holder_init();
+        __ReentrancyGuard_init();
         hatching = block.timestamp;
         erc721 = _erc721;
         erc20 = _erc20;
         strikeController = msg.sender;
         auctionManager = _auctionManager;
-        IERC721(erc721).setApprovalForAll(_auctionManager, true);
+        IERC721Upgradeable(erc721).setApprovalForAll(_auctionManager, true);
     }
 
     /*** Stakers functions ***/
@@ -109,7 +115,11 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
         uint256 nepoch = getEpoch_2e() + 1;
         require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
         // Transfer the NFT to the pool and write the option
-        IERC721(erc721).safeTransferFrom(msg.sender, address(this), _tokenId);
+        IERC721Upgradeable(erc721).safeTransferFrom(
+            msg.sender,
+            address(this),
+            _tokenId
+        );
         optionAt[_tokenId].sPrice = _strikePrice;
         optionAt[_tokenId].writer = msg.sender;
         optionAt[_tokenId].epoch = nepoch;
@@ -177,7 +187,7 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
         uint256 totalPremiums = premiumAt[_epoch][_strikePrice];
         uint256 userPremiums = (totalPremiums * shares) /
             NFTsAt[_epoch][_strikePrice].length;
-        IERC20(erc20).transfer(_user, userPremiums);
+        IERC20Upgradeable(erc20).transfer(_user, userPremiums);
     }
 
     function coverPosition(uint256 _tokenId) public {
@@ -200,7 +210,13 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
         require(!option.covered, "Option already covered");
         // Transfer debt to option writer and set the position covered
         uint256 debt = floorPriceAt[option.epoch] - option.sPrice;
-        require(IERC20(erc20).transferFrom(msg.sender, option.buyer, debt));
+        require(
+            IERC20Upgradeable(erc20).transferFrom(
+                msg.sender,
+                option.buyer,
+                debt
+            )
+        );
         optionAt[_tokenId].covered = true;
         emit CoverPosition(
             option.epoch,
@@ -230,7 +246,11 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
             _claimPremiums_Cb4(option.epoch, option.sPrice, msg.sender);
         }
         // Transfer back NFT to owner
-        IERC721(erc721).safeTransferFrom(address(this), msg.sender, _tokenId);
+        IERC721Upgradeable(erc721).safeTransferFrom(
+            address(this),
+            msg.sender,
+            _tokenId
+        );
     }
 
     /*** Buyers functions ***/
@@ -265,7 +285,11 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
             );
 
         require(
-            IERC20(erc20).transferFrom(msg.sender, address(this), optionPrice)
+            IERC20Upgradeable(erc20).transferFrom(
+                msg.sender,
+                address(this),
+                optionPrice
+            )
         );
         uint256 tokenIterator = NFTsAt[epoch][_strikePrice].length -
             NFTtradedAt[epoch][_strikePrice] -
@@ -294,7 +318,7 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
         require(getEpoch_2e() > option.epoch, "Epoch not finished");
         require(!option.covered, "Position covered");
         require(
-            IERC20(erc20).transferFrom(
+            IERC20Upgradeable(erc20).transferFrom(
                 msg.sender,
                 option.writer,
                 option.sPrice
@@ -302,7 +326,11 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
             "Please set allowance"
         );
         require(!option.liquidated, "option already liquidated");
-        IERC721(erc721).safeTransferFrom(address(this), msg.sender, _tokenId);
+        IERC721Upgradeable(erc721).safeTransferFrom(
+            address(this),
+            msg.sender,
+            _tokenId
+        );
     }
 
     function liquidateNFT(uint256 _tokenId) public {
@@ -370,29 +398,24 @@ contract StrikePool is Ownable, ERC721Holder, ReentrancyGuard {
     function setStrikePriceAt(
         uint256 _epoch,
         uint256[] memory _strikePrices
-    ) public onlyOwner {
+    ) public {
         for (uint256 i = 0; i != _strikePrices.length; ++i) {
             strikePriceAt[_epoch][_strikePrices[i]] = true;
         }
         emit SetStrikePrice(_epoch, _strikePrices);
     }
 
-    function setfloorpriceAt(
-        uint256 _epoch,
-        uint256 _floorPrice
-    ) public onlyOwner {
+    function setfloorpriceAt(uint256 _epoch, uint256 _floorPrice) public {
         require(_floorPrice > 0, "Floor price < 0");
         floorPriceAt[_epoch] = _floorPrice;
         emit SetFloorPrice(_epoch, _floorPrice);
     }
 
-    function setAuctionManager(address _auctionManager) public onlyOwner {
+    function setAuctionManager(address _auctionManager) public {
         auctionManager = _auctionManager;
     }
 
-    function setLiquidationInterrupted(
-        bool _liquidationInterrupted
-    ) public onlyOwner {
+    function setLiquidationInterrupted(bool _liquidationInterrupted) public {
         liquidationInterrupted = _liquidationInterrupted;
     }
 

@@ -1,18 +1,21 @@
 // SPDX-License-Identifier: MIT
-import "./StrikePool.sol";
 import "./interfaces/IStrikePool.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import {ProxyAdmin} from "@openzeppelin/contracts/proxy/transparent/ProxyAdmin.sol";
+import {TransparentUpgradeableProxy} from "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
+
 pragma solidity ^0.8.13;
 
-contract StrikeController is Ownable {
+contract StrikeController is Ownable, ProxyAdmin {
     address public erc20;
-    mapping(address => address) public pools;
+    mapping(address => TransparentUpgradeableProxy) public pools;
     address[] public erc721;
     event PoolDeployed(address erc721, address erc20, address pool);
     address auctionManager;
     address optionPricing;
     address volatilityOracle;
+    address poolImplementation;
 
     constructor(address _erc20) {
         erc20 = _erc20;
@@ -21,23 +24,29 @@ contract StrikeController is Ownable {
     function deployPool(
         address _erc721
     ) public onlyOwner returns (address pool) {
-        require(pools[_erc721] == address(0));
-        StrikePool jpegxPool = new StrikePool(_erc721, erc20, auctionManager);
+        require(address(pools[_erc721]) == address(0));
+        //StrikePool jpegxPool = new StrikePool(_erc721, erc20, auctionManager);
+        TransparentUpgradeableProxy jpegxPool = new TransparentUpgradeableProxy(
+            poolImplementation,
+            address(this),
+            abi.encodeWithSignature(
+                "initialize(address,address,address)",
+                _erc721,
+                erc20,
+                auctionManager
+            )
+        );
+        /*
         pools[_erc721] = address(jpegxPool);
-        erc721.push(_erc721);
-        jpegxPool.transferOwnership(owner());
+        erc721.push(_erc721);*/
         emit PoolDeployed(_erc721, erc20, address(jpegxPool));
         return address(jpegxPool);
-    }
-
-    function erasePool(address _erc721) public onlyOwner {
-        pools[_erc721] = address(0);
     }
 
     function getPoolFromTokenAddress(
         address _tokenAddress
     ) public view returns (address) {
-        return pools[_tokenAddress];
+        return address(pools[_tokenAddress]);
     }
 
     function setAuctionManager(address _auctionManager) public onlyOwner {
@@ -119,5 +128,9 @@ contract StrikeController is Ownable {
 
     function getInterval(address _pool) public view returns (uint256 interval) {
         return IStrikePool(_pool).getInterval();
+    }
+
+    function setPoolImplementation(address _poolImplementation) public {
+        poolImplementation = _poolImplementation;
     }
 }
