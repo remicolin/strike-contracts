@@ -4,3 +4,4 @@ Welcome to strike-contracts repo.
 2. clone project
 3. install dependencies
 ->  forge install https://github.com/OpenZeppelin/openzeppelin-contracts/
+->  forge install https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/
