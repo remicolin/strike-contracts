@@ -64,7 +64,6 @@ contract StrikePool is
         uint256 _tokenId,
         uint256 _strikePrice,
         uint256 _premium,
-        address _writer,
         address indexed _buyer
     );
     event CoverPosition(
@@ -99,6 +98,8 @@ contract StrikePool is
         bool covered;
         bool liquidated;
     }
+
+    /*** Initialize the contract ***/
 
     function initialize(
         address _erc721,
@@ -183,11 +184,12 @@ contract StrikePool is
         optionAt[_tokenId].buyer = address(0);
         NFTsAt[nepoch][_strikePrice].push(_tokenId);
         ++shareAtOf[nepoch][_strikePrice][msg.sender];
-        // Claim premiums if user has some to request
 
+        // Claim premiums if user has some to request
         if (shareAtOf[option.epoch][option.sPrice][msg.sender] > 0) {
             _claimPremiums_Cb4(option.epoch, option.sPrice, msg.sender);
         }
+
         emit ReStake(nepoch, _tokenId, _strikePrice, msg.sender);
     }
 
@@ -197,6 +199,7 @@ contract StrikePool is
                 hatching + (_epoch + 1) * epochduration - 2 * interval,
             "Option didn't expired yet"
         );
+
         _claimPremiums_Cb4(_epoch, _strikePrice, msg.sender);
     }
 
@@ -205,24 +208,27 @@ contract StrikePool is
         uint256 _strikePrice,
         address _user
     ) internal {
+        // Compute the number of shares and the premiums to claim
         uint256 shares = shareAtOf[_epoch][_strikePrice][_user];
         shareAtOf[_epoch][_strikePrice][_user] = 0;
         uint256 totalPremiums = premiumAt[_epoch][_strikePrice];
         uint256 userPremiums = (totalPremiums * shares) /
             NFTsAt[_epoch][_strikePrice].length;
+
+        // Transfer the premiums to the user
         IERC20Upgradeable(erc20).transfer(_user, userPremiums);
     }
 
     function coverPosition(uint256 _tokenId) public {
         Option memory option = optionAt[_tokenId];
         require(
-            floorPriceAt[option.epoch] > 0,
-            "Floor price not settled for this epoch"
-        );
-        require(
             block.timestamp - hatching >
                 (option.epoch + 1) * epochduration - 2 * interval,
             "Option has not expired"
+        );
+        require(
+            floorPriceAt[option.epoch] > 0,
+            "Floor price not settled for this epoch"
         );
         require(
             floorPriceAt[option.epoch] > option.sPrice,
@@ -253,11 +259,11 @@ contract StrikePool is
     function withdrawNFT(uint256 _tokenId) public {
         Option memory option = optionAt[_tokenId];
         require(getEpoch_2e() > option.epoch, "Epoch not finished");
-        require(option.writer == msg.sender, "You are not the owner");
         require(
             floorPriceAt[option.epoch] > 0,
             "Floor price not settled for this epoch"
         );
+        require(option.writer == msg.sender, "You are not the owner");
         require(
             floorPriceAt[option.epoch] <= option.sPrice ||
                 option.covered ||
@@ -277,22 +283,27 @@ contract StrikePool is
     }
 
     /*** Buyers functions ***/
-    // 245290 gas
-    function buyOption(uint256 _strikePrice) public nonReentrant {
+
+    function buyOptions(
+        uint256 _strikePrice,
+        uint256 _amount
+    ) public nonReentrant {
         uint256 epoch = getEpoch_2e();
+
+        // Check if epoch and strikePrice are correct
         require(strikePriceAt[epoch][_strikePrice], "Wrong strikePrice");
-        require(
-            NFTtradedAt[epoch][_strikePrice] <
-                NFTsAt[epoch][_strikePrice].length,
-            "All options have been bought"
-        );
         require(
             block.timestamp <
                 hatching + (epoch + 1) * epochduration - 2 * interval,
-            "Option didn't expired yet"
+            "Wait for the next epoch"
         );
 
-        // Get floor price and volatility
+        // Check if there are enough tokens available
+        uint256 tokensAvailable = NFTsAt[epoch][_strikePrice].length -
+            NFTtradedAt[epoch][_strikePrice];
+        require(_amount <= tokensAvailable, "Not enough tokens available");
+
+        // Get floor price and volatility and calculate option price
         (uint256 volatility, uint256 floorPrice) = IMockOracle(volatilityOracle)
             .getVolatilityAndFloorPrice(erc721);
 
@@ -304,32 +315,32 @@ contract StrikePool is
             volatility
         );
 
+        // Transfer erc20 to the contract
         require(
             IERC20Upgradeable(erc20).transferFrom(
                 msg.sender,
                 address(this),
-                optionPrice
+                _amount * optionPrice
             )
         );
+
+        // Update state variables
         uint256 tokenIterator = NFTsAt[epoch][_strikePrice].length -
             NFTtradedAt[epoch][_strikePrice] -
             1;
-        ++NFTtradedAt[epoch][_strikePrice];
-        premiumAt[epoch][_strikePrice] += optionPrice;
-        uint256 tokenId = NFTsAt[epoch][_strikePrice][tokenIterator];
-        require(
-            optionAt[tokenId].buyer == address(0),
-            "This option has already been bought"
-        );
-        optionAt[tokenId].buyer = msg.sender;
-        emit BuyOption(
-            epoch,
-            tokenId,
-            _strikePrice,
-            optionPrice,
-            optionAt[tokenId].writer,
-            msg.sender
-        );
+        NFTtradedAt[epoch][_strikePrice] += _amount;
+        premiumAt[epoch][_strikePrice] += _amount * optionPrice;
+        for (uint256 i = tokenIterator; i < tokenIterator + _amount; i++) {
+            uint256 tokenId = NFTsAt[epoch][_strikePrice][i];
+            optionAt[tokenId].buyer = msg.sender;
+            emit BuyOption(
+                epoch,
+                tokenId,
+                _strikePrice,
+                optionPrice,
+                msg.sender
+            );
+        }
     }
 
     function buyAtStrike(uint256 _tokenId) public {
@@ -337,15 +348,20 @@ contract StrikePool is
         require(option.buyer == msg.sender, "You don't own this option");
         require(getEpoch_2e() > option.epoch, "Epoch not finished");
         require(!option.covered, "Position covered");
+        require(!option.liquidated, "option already liquidated");
+        require(
+            floorPriceAt[option.epoch] > 0,
+            "Floor price not settled for this epoch"
+        );
+
         require(
             IERC20Upgradeable(erc20).transferFrom(
                 msg.sender,
                 option.writer,
                 option.sPrice
-            ),
-            "Please set allowance"
+            )
         );
-        require(!option.liquidated, "option already liquidated");
+
         IERC721Upgradeable(erc721).safeTransferFrom(
             address(this),
             msg.sender,
@@ -457,6 +473,7 @@ contract StrikePool is
     }
 
     /*** Getters ***/
+
     function getFloorPrice(uint256 _epoch) public view returns (uint256) {
         return floorPriceAt[_epoch];
     }

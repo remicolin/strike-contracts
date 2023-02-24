@@ -31,6 +31,8 @@ interface IStrikePool {
 
     function buyOption(uint256 _strikePrice) external;
 
+    function buyOptions(uint256 _strikePrice, uint256 _amount) external;
+
     function coverPosition(uint256 _tokenId) external;
 
     function buyAtStrike(uint256 _tokenId) external;
