@@ -88,7 +88,7 @@ contract BuyTest is Test {
     function testBuyOption() public {
         vm.warp(epochduration + interval);
         vm.startPrank(alice);
-        strikePoolProxy.buyOption(2 ether);
+        strikePoolProxy.buyOptions(2 ether, 2);
         vm.stopPrank();
     }
 

@@ -325,12 +325,14 @@ contract StrikePool is
         );
 
         // Update state variables
+        //tokenIterator= 2  - 0  - 1 = 1
+        //
         uint256 tokenIterator = NFTsAt[epoch][_strikePrice].length -
             NFTtradedAt[epoch][_strikePrice] -
             1;
         NFTtradedAt[epoch][_strikePrice] += _amount;
         premiumAt[epoch][_strikePrice] += _amount * optionPrice;
-        for (uint256 i = tokenIterator; i < tokenIterator + _amount; i++) {
+        for (uint256 i = tokenIterator; i > tokenIterator + 1 - _amount; i--) {
             uint256 tokenId = NFTsAt[epoch][_strikePrice][i];
             optionAt[tokenId].buyer = msg.sender;
             emit BuyOption(
