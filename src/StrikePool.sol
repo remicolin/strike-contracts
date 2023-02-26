@@ -138,6 +138,7 @@ contract StrikePool is
     function stake(uint256 _tokenId, uint256 _strikePrice) public {
         uint256 nepoch = getEpoch_2e() + 1;
         require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
+
         // Transfer the NFT to the pool and write the option
         IERC721Upgradeable(erc721).safeTransferFrom(
             msg.sender,
@@ -148,10 +149,38 @@ contract StrikePool is
         optionAt[_tokenId].writer = msg.sender;
         optionAt[_tokenId].epoch = nepoch;
         optionAt[_tokenId].buyer = address(0);
+
         // Push the tokenId into a list for the epoch and increment shares of writer for the epoch
         NFTsAt[nepoch][_strikePrice].push(_tokenId);
         ++shareAtOf[nepoch][_strikePrice][msg.sender];
         emit Stake(nepoch, _tokenId, _strikePrice, msg.sender);
+    }
+
+    function stakeNFTs(
+        uint256[] memory _tokenIds,
+        uint256 _strikePrice
+    ) public {
+        uint256 nepoch = getEpoch_2e() + 1;
+        require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
+        for (uint256 i = 0; i < _tokenIds.length; i++) {
+            // Transfer the NFT to the pool and write the option
+            IERC721Upgradeable(erc721).safeTransferFrom(
+                msg.sender,
+                address(this),
+                _tokenIds[i]
+            );
+            optionAt[_tokenIds[i]].sPrice = _strikePrice;
+            optionAt[_tokenIds[i]].writer = msg.sender;
+            optionAt[_tokenIds[i]].epoch = nepoch;
+            optionAt[_tokenIds[i]].buyer = address(0);
+
+            // Push the tokenId into a list for the epoch and increment shares of writer for the epoch
+            NFTsAt[nepoch][_strikePrice].push(_tokenIds[i]);
+
+            emit Stake(nepoch, _tokenIds[i], _strikePrice, msg.sender);
+        }
+        // Increment shares of writer for the epoch
+        shareAtOf[nepoch][_strikePrice][msg.sender] += _tokenIds.length;
     }
 
     function restake(
@@ -182,6 +211,7 @@ contract StrikePool is
         optionAt[_tokenId].epoch = nepoch;
         optionAt[_tokenId].sPrice = _strikePrice;
         optionAt[_tokenId].buyer = address(0);
+        optionAt[_tokenId].covered = false;
         NFTsAt[nepoch][_strikePrice].push(_tokenId);
         ++shareAtOf[nepoch][_strikePrice][msg.sender];
 
@@ -274,6 +304,10 @@ contract StrikePool is
         if (shareAtOf[option.epoch][option.sPrice][msg.sender] > 0) {
             _claimPremiums_Cb4(option.epoch, option.sPrice, msg.sender);
         }
+        // Update state variable
+        optionAt[_tokenId].writer = address(0);
+        optionAt[_tokenId].covered = false;
+
         // Transfer back NFT to owner
         IERC721Upgradeable(erc721).safeTransferFrom(
             address(this),
@@ -327,6 +361,7 @@ contract StrikePool is
         // Update state variables
         uint256 tokenIterator = NFTsAt[epoch][_strikePrice].length -
             NFTtradedAt[epoch][_strikePrice];
+
         NFTtradedAt[epoch][_strikePrice] += _amount;
         premiumAt[epoch][_strikePrice] += _amount * optionPrice;
         for (uint256 i = tokenIterator; i >= tokenIterator + 1 - _amount; i--) {
@@ -355,6 +390,7 @@ contract StrikePool is
             "Floor price not settled for this epoch"
         );
 
+        // Transfer erc20 to the option writer
         require(
             IERC20Upgradeable(erc20).transferFrom(
                 msg.sender,
@@ -362,7 +398,10 @@ contract StrikePool is
                 option.sPrice
             )
         );
+        // Update state variables
+        optionAt[_tokenId].writer = address(0);
 
+        // Transfer back NFT to the option buyer
         IERC721Upgradeable(erc721).safeTransferFrom(
             address(this),
             msg.sender,
@@ -393,6 +432,7 @@ contract StrikePool is
         optionAt[_tokenId].liquidated = true;
         optionAt[_tokenId].writer = address(0);
         uint256 debt = floorPriceAt[epoch] - option.sPrice;
+
         IAuctionManager(auctionManager).start(
             erc721,
             _tokenId,
