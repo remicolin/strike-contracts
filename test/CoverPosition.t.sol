@@ -76,10 +76,10 @@ contract CoverPosition is Test {
         erc721.approve(address(strikePool), tokenMinted_bis);
         erc721.approve(address(strikePool), tokenMinted_third);
         erc20.freemint();
-        strikePool.stake(tokenMinted, 2 ether);
-        strikePool.stake(tokenMinted_bis, 2 ether);
+        strikePool.stakeNFTs(tokenMinted, 2 ether);
+        strikePool.stakeNFTs(tokenMinted_bis, 2 ether);
         vm.warp(2 * epochduration + 1);
-        strikePool.stake(tokenMinted_third, 2 ether);
+        strikePool.stakeNFTs(tokenMinted_third, 2 ether);
         vm.warp(1);
         vm.stopPrank();
         /*** Alice mint erc20 and buy option ***/
@@ -96,7 +96,7 @@ contract CoverPosition is Test {
         );
         assertEq(option.buyer, alice);
         vm.stopPrank();
-        strikePool.setfloorpriceAt(1, 3 ether);
+        strikePool.setFloorPriceAt(1, 3 ether);
     }
 
     function testCoverPositionNotBought() public {

@@ -12,7 +12,7 @@ import "../../src/mocks/MockOracle.sol";
 import {console} from "forge-std/console.sol";
 import {stdStorage, StdStorage, Test} from "forge-std/Test.sol";
 
-contract BuyTest is Test {
+contract StakeTest is Test {
     IStrikePool public strikePoolProxy;
     StrikeController public strikeController;
     StrikePool public strikePoolV1;
@@ -74,32 +74,12 @@ contract BuyTest is Test {
         tokenMinted_bis = erc721.freemint();
         erc721.approve(address(strikePoolProxy), tokenMinted);
         erc721.approve(address(strikePoolProxy), tokenMinted_bis);
-        strikePoolProxy.stake(tokenMinted, 2 ether);
-        strikePoolProxy.stake(tokenMinted_bis, 2 ether);
-        vm.stopPrank();
-        /*** Alice mint erc20 ***/
-        vm.stopPrank();
-        vm.startPrank(alice);
-        erc20.freemint();
-        erc20.approve(address(strikePoolProxy), 2 ether);
-        vm.stopPrank();
     }
 
-    function testBuyOption() public {
-        vm.warp(epochduration + interval);
-        vm.startPrank(alice);
-        strikePoolProxy.buyOptions(2 ether, 2);
-        vm.stopPrank();
-    }
-
-    function testSetNewAuctionManager() public {
-        strikePoolProxy.setAuctionManager(address(0));
-    }
-
-    function testSetNewAuctionManagerFail() public {
-        vm.startPrank(alice);
-        vm.expectRevert(bytes("msg.sender is not admin"));
-        strikePoolProxy.setAuctionManager(address(0));
-        vm.stopPrank();
+    function testStakeNFTs() public {
+        uint256[] memory tokenIds = new uint256[](2);
+        tokenIds[0] = tokenMinted;
+        tokenIds[1] = tokenMinted_bis;
+        strikePoolProxy.stakeNFTs(tokenIds, 2 ether);
     }
 }

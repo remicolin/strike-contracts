@@ -19,9 +19,19 @@ interface IStrikePool {
 
     /*** Staker functions ***/
 
-    function stake(uint256 _tokenId, uint256 _strikePrice) external;
+    function stakeNFTs(uint256 _tokenId, uint256 _strikePrice) external;
 
-    function restake(uint256 _tokenId, uint256 _strikePrice) external;
+    function stakeNFTs(
+        uint256[] memory _tokenIds,
+        uint256 _strikePrice
+    ) external;
+
+    function restakeNFTs(uint256 _tokenId, uint256 _strikePrice) external;
+
+    function restakeNFTs(
+        uint256[] memory _tokenIds,
+        uint256 _strikePrice
+    ) external;
 
     function withdrawNFT(uint256 _tokenId) external;
 
@@ -52,7 +62,7 @@ interface IStrikePool {
         uint256[] memory _strikePrices
     ) external;
 
-    function setfloorpriceAt(uint256 _epoch, uint256 _floorPrice) external;
+    function setFloorPriceAt(uint256 _epoch, uint256 _floorPrice) external;
 
     function setAuctionManager(address _auctionManager) external;
 

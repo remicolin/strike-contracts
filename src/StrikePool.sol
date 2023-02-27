@@ -135,23 +135,11 @@ contract StrikePool is
 
     /*** Stakers functions ***/
 
-    function stake(uint256 _tokenId, uint256 _strikePrice) public {
+    function stakeNFTs(uint256 _tokenId, uint256 _strikePrice) public {
         uint256 nepoch = getEpoch_2e() + 1;
         require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
+        _stakeNFTs_9sJ(nepoch, _tokenId, _strikePrice, msg.sender);
 
-        // Transfer the NFT to the pool and write the option
-        IERC721Upgradeable(erc721).safeTransferFrom(
-            msg.sender,
-            address(this),
-            _tokenId
-        );
-        optionAt[_tokenId].sPrice = _strikePrice;
-        optionAt[_tokenId].writer = msg.sender;
-        optionAt[_tokenId].epoch = nepoch;
-        optionAt[_tokenId].buyer = address(0);
-
-        // Push the tokenId into a list for the epoch and increment shares of writer for the epoch
-        NFTsAt[nepoch][_strikePrice].push(_tokenId);
         ++shareAtOf[nepoch][_strikePrice][msg.sender];
         emit Stake(nepoch, _tokenId, _strikePrice, msg.sender);
     }
@@ -163,38 +151,77 @@ contract StrikePool is
         uint256 nepoch = getEpoch_2e() + 1;
         require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
         for (uint256 i = 0; i < _tokenIds.length; i++) {
-            // Transfer the NFT to the pool and write the option
-            IERC721Upgradeable(erc721).safeTransferFrom(
-                msg.sender,
-                address(this),
-                _tokenIds[i]
-            );
-            optionAt[_tokenIds[i]].sPrice = _strikePrice;
-            optionAt[_tokenIds[i]].writer = msg.sender;
-            optionAt[_tokenIds[i]].epoch = nepoch;
-            optionAt[_tokenIds[i]].buyer = address(0);
-
-            // Push the tokenId into a list for the epoch and increment shares of writer for the epoch
-            NFTsAt[nepoch][_strikePrice].push(_tokenIds[i]);
-
-            emit Stake(nepoch, _tokenIds[i], _strikePrice, msg.sender);
+            _stakeNFTs_9sJ(nepoch, _tokenIds[i], _strikePrice, msg.sender);
         }
         // Increment shares of writer for the epoch
         shareAtOf[nepoch][_strikePrice][msg.sender] += _tokenIds.length;
     }
 
-    function restake(
+    function _stakeNFTs_9sJ(
+        uint256 _nepoch,
+        uint256 _tokenId,
+        uint256 _strikePrice,
+        address _writer
+    ) internal {
+        // Transfer the NFT to the pool
+        IERC721Upgradeable(erc721).safeTransferFrom(
+            _writer,
+            address(this),
+            _tokenId
+        );
+
+        // Write the option
+        optionAt[_tokenId].sPrice = _strikePrice;
+        optionAt[_tokenId].writer = _writer;
+        optionAt[_tokenId].epoch = _nepoch;
+        optionAt[_tokenId].buyer = address(0);
+
+        NFTsAt[_nepoch][_strikePrice].push(_tokenId);
+
+        emit Stake(_nepoch, _tokenId, _strikePrice, _writer);
+    }
+
+    function restakeNFTs(
         uint256 _tokenId,
         uint256 _strikePrice
     ) public nonReentrant {
-        Option memory option = optionAt[_tokenId];
         uint256 nepoch = getEpoch_2e() + 1;
+
+        require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
+
+        _restakeNFTs_5cC(nepoch, _tokenId, _strikePrice, msg.sender);
+        ++shareAtOf[nepoch][_strikePrice][msg.sender];
+    }
+
+    function restakeNFTs(
+        uint256[] calldata _tokenIds,
+        uint256 _strikePrice
+    ) public nonReentrant {
+        uint256 nepoch = getEpoch_2e() + 1;
+        require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
+
+        // boucle sur les tokenIds
+        for (uint256 i = 0; i < _tokenIds.length; i++) {
+            _restakeNFTs_5cC(nepoch, _tokenIds[i], _strikePrice, msg.sender);
+        }
+        // Increment shares of writer for the epoch
+        // Be sure the transaction don't revertse before or the shares will not be incremented for the next epoch
+        shareAtOf[nepoch][_strikePrice][msg.sender] += _tokenIds.length;
+    }
+
+    function _restakeNFTs_5cC(
+        uint256 _nepoch,
+        uint256 _tokenId,
+        uint256 _strikePrice,
+        address _writer
+    ) internal {
+        Option memory option = optionAt[_tokenId];
         require(
             block.timestamp >
                 hatching + (option.epoch + 1) * epochduration - 2 * interval,
             "Option has not expired"
         );
-        require(option.writer == msg.sender, "You are not the owner");
+        require(option.writer == _writer, "You are not the owner");
         require(
             floorPriceAt[option.epoch] > 0,
             "Floor price not settled for this epoch"
@@ -205,22 +232,18 @@ contract StrikePool is
                 option.buyer == address(0),
             "Cover your position"
         );
-        require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
 
         // Re-write the option
-        optionAt[_tokenId].epoch = nepoch;
+        optionAt[_tokenId].epoch = _nepoch;
         optionAt[_tokenId].sPrice = _strikePrice;
         optionAt[_tokenId].buyer = address(0);
         optionAt[_tokenId].covered = false;
-        NFTsAt[nepoch][_strikePrice].push(_tokenId);
-        ++shareAtOf[nepoch][_strikePrice][msg.sender];
 
-        // Claim premiums if user has some to request
-        if (shareAtOf[option.epoch][option.sPrice][msg.sender] > 0) {
-            _claimPremiums_Cb4(option.epoch, option.sPrice, msg.sender);
-        }
+        // Push the tokenId into a list for the epoch
+        // Shares will be incremented after the loop to save gas
+        NFTsAt[_nepoch][_strikePrice].push(_tokenId);
 
-        emit ReStake(nepoch, _tokenId, _strikePrice, msg.sender);
+        emit ReStake(_nepoch, _tokenId, _strikePrice, _writer);
     }
 
     function claimPremiums(uint256 _epoch, uint256 _strikePrice) public {
@@ -428,6 +451,7 @@ contract StrikePool is
         );
         require(!option.covered, "Position covered");
         require(option.liquidated != true, "Option already liquidated");
+
         // Set the option to liquidated and start an auction on the NFT
         optionAt[_tokenId].liquidated = true;
         optionAt[_tokenId].writer = address(0);
@@ -482,7 +506,7 @@ contract StrikePool is
         emit SetStrikePrice(_epoch, _strikePrices);
     }
 
-    function setfloorpriceAt(
+    function setFloorPriceAt(
         uint256 _epoch,
         uint256 _floorPrice
     ) public onlyProvider {

@@ -72,7 +72,7 @@ contract StakeTest is Test {
     function teststakeWithNFT() public {
         vm.startPrank(bob);
         uint256 epoch = strikePool.getEpoch_2e();
-        strikePool.stake(tokenMinted, 2 ether);
+        strikePool.stakeNFTs(tokenMinted, 2 ether);
         uint256 sharesOfBob = strikePool.getSharesAtOf(epoch + 1, 2 ether, bob);
         assertEq(sharesOfBob, 1);
     }
@@ -81,7 +81,7 @@ contract StakeTest is Test {
         if (strikePrice != 2 ether) {
             vm.startPrank(bob);
             vm.expectRevert(bytes("Wrong strikePrice"));
-            strikePool.stake(tokenMinted, strikePrice);
+            strikePool.stakeNFTs(tokenMinted, strikePrice);
             vm.stopPrank();
         }
     }
@@ -89,7 +89,7 @@ contract StakeTest is Test {
     function teststakeWithoutNFT() public {
         vm.startPrank(bob);
         vm.expectRevert(bytes("ERC721: invalid token ID"));
-        strikePool.stake(2, 2 ether);
+        strikePool.stakeNFTs(2, 2 ether);
         vm.stopPrank();
     }
 }

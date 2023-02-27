@@ -77,10 +77,10 @@ contract RestakeTest is Test {
         erc721.approve(address(strikePool), tokenMinted_bis);
         erc721.approve(address(strikePool), tokenMinted_third);
         erc20.freemint();
-        strikePool.stake(tokenMinted, 2 ether);
-        strikePool.stake(tokenMinted_bis, 2 ether);
+        strikePool.stakeNFTs(tokenMinted, 2 ether);
+        strikePool.stakeNFTs(tokenMinted_bis, 2 ether);
         vm.warp(2 * epochduration + 1);
-        strikePool.stake(tokenMinted_third, 2 ether);
+        strikePool.stakeNFTs(tokenMinted_third, 2 ether);
         vm.warp(1);
         vm.stopPrank();
         /*** Alice mint erc20 and buy option ***/
@@ -97,7 +97,7 @@ contract RestakeTest is Test {
         );
         assertEq(option.buyer, alice);
         vm.stopPrank();
-        strikePool.setfloorpriceAt(1, 3 ether);
+        strikePool.setFloorPriceAt(1, 3 ether);
         vm.warp(2 * epochduration - interval);
         vm.startPrank(bob);
         erc20.approve(address(strikePool), 1 ether);
@@ -107,6 +107,6 @@ contract RestakeTest is Test {
 
     function testRestake() public {
         vm.startPrank(bob);
-        strikePool.restake(1, 2 ether);
+        strikePool.restakeNFTs(1, 2 ether);
     }
 }

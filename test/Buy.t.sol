@@ -69,8 +69,8 @@ contract BuyTest is Test {
         tokenMinted_bis = erc721.freemint();
         erc721.approve(address(strikePool), tokenMinted);
         erc721.approve(address(strikePool), tokenMinted_bis);
-        strikePool.stake(tokenMinted, 2 ether);
-        strikePool.stake(tokenMinted_bis, 2 ether);
+        strikePool.stakeNFTs(tokenMinted, 2 ether);
+        strikePool.stakeNFTs(tokenMinted_bis, 2 ether);
         vm.stopPrank();
         /*** Alice mint erc20 ***/
         vm.stopPrank();
@@ -81,7 +81,7 @@ contract BuyTest is Test {
     }
 
     function testBuy() public {
-        // Test also the LIFO stake
+        // Test also the LIFO stakeNFTs
         vm.startPrank(alice);
         vm.warp(epochduration + 1);
         strikePool.buyOption(2 ether);
