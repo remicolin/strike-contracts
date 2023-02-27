@@ -62,6 +62,8 @@ contract BuyTest is Test {
         uint256[] memory strikePrices = new uint256[](1);
         strikePrices[0] = 2 ether;
         strikePoolProxy.setStrikePriceAt(1, strikePrices);
+        // get the epochduration of the strikePoolProxy contract
+
         epochduration = strikePoolProxy.getEpochDuration();
         interval = strikePoolProxy.getInterval();
         /*** Set-up user  ***/

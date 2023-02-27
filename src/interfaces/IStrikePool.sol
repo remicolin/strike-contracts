@@ -95,4 +95,6 @@ interface IStrikePool {
     function getEpochDuration() external view returns (uint256 epochduration);
 
     function getInterval() external view returns (uint256 interval);
+
+    function epochduration() external view returns (uint256 epochduration);
 }

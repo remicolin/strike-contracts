@@ -30,22 +30,26 @@ contract StrikePool is
     address public optionPricing;
     address public volatilityOracle;
 
+    bool public liquidationInterrupted;
+    uint256 constant epochduration = 14 days;
+    uint256 constant interval = 1 days;
+    uint256 public hatching;
+
+    /*** Roles ***/
     bytes32 public constant FLOOR_PRICE_PROVIDER_ROLE =
         keccak256("FLOOR_PRICE_PROVIDER_ROLE");
 
-    bool public liquidationInterrupted;
-    uint256 immutable epochduration = 14 days;
-    uint256 immutable interval = 1 days;
-    uint256 public hatching;
     /*** Owner variables ***/
     mapping(uint256 => mapping(uint256 => bool)) strikePriceAt;
     mapping(uint256 => mapping(uint256 => uint256)) premiumAt;
     mapping(uint256 => uint256) floorPriceAt;
+
     /*** Option relatives variables ***/
     mapping(uint256 => mapping(uint256 => uint256[])) NFTsAt;
     mapping(uint256 => mapping(uint256 => uint256)) NFTtradedAt;
     mapping(uint256 => mapping(uint256 => mapping(address => uint256))) shareAtOf;
     mapping(uint256 => Option) optionAt;
+
     /*** Events ***/
     event Stake(
         uint256 indexed _epoch,
@@ -70,10 +74,9 @@ contract StrikePool is
         uint256 indexed _epoch,
         uint256 _tokenId,
         uint256 _debt,
-        address indexed _writer,
-        address _buyer
+        address indexed _writer
     );
-    event WithdrawNFT(uint256 _tokenId, address _owner);
+    event WithdrawNFT(uint256 indexed _tokenId, address indexed _owner);
     event ClaimPremiums(
         uint256 indexed _epoch,
         uint256 _shares,
@@ -135,6 +138,11 @@ contract StrikePool is
 
     /*** Stakers functions ***/
 
+    /* Functions relatives to NFT staking */
+
+    /// @notice Stake NFTs and write option for the next epoch
+    /// @param _tokenId Id of the NFT to stake
+    /// @param _strikePrice Strike price of the option
     function stakeNFTs(uint256 _tokenId, uint256 _strikePrice) public {
         uint256 nepoch = getEpoch_2e() + 1;
         require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
@@ -144,6 +152,9 @@ contract StrikePool is
         emit Stake(nepoch, _tokenId, _strikePrice, msg.sender);
     }
 
+    /// @notice Stake NFTs and write options for the next epoch
+    /// @param _tokenIds List of Ids of the NFTs to stake
+    /// @param _strikePrice Strike price of the option
     function stakeNFTs(
         uint256[] memory _tokenIds,
         uint256 _strikePrice
@@ -157,6 +168,10 @@ contract StrikePool is
         shareAtOf[nepoch][_strikePrice][msg.sender] += _tokenIds.length;
     }
 
+    /// @dev Internal function to stake NFTs
+    /// @param _tokenId Id of the NFT to stake
+    /// @param _strikePrice Strike price of the option
+    /// @param _writer Address of the writer
     function _stakeNFTs_9sJ(
         uint256 _nepoch,
         uint256 _tokenId,
@@ -181,6 +196,11 @@ contract StrikePool is
         emit Stake(_nepoch, _tokenId, _strikePrice, _writer);
     }
 
+    /* Functions relatives to NFT re-staking  */
+
+    /// @notice Restake NFTs and write option for the next epoch
+    /// @param _tokenId Id of the NFT to restake
+    /// @param _strikePrice Strike price of the option
     function restakeNFTs(
         uint256 _tokenId,
         uint256 _strikePrice
@@ -193,6 +213,9 @@ contract StrikePool is
         ++shareAtOf[nepoch][_strikePrice][msg.sender];
     }
 
+    /// @notice Restake NFTs and write options for the next epoch
+    /// @param _tokenIds List of Ids of the NFTs to restake
+    /// @param _strikePrice Strike price of the option
     function restakeNFTs(
         uint256[] calldata _tokenIds,
         uint256 _strikePrice
@@ -209,6 +232,9 @@ contract StrikePool is
         shareAtOf[nepoch][_strikePrice][msg.sender] += _tokenIds.length;
     }
 
+    /// @dev Internal function to restake NFTs
+    /// @param _tokenId Id of the NFT to restake
+    /// @param _strikePrice Strike price of the option
     function _restakeNFTs_5cC(
         uint256 _nepoch,
         uint256 _tokenId,
@@ -246,6 +272,10 @@ contract StrikePool is
         emit ReStake(_nepoch, _tokenId, _strikePrice, _writer);
     }
 
+    /* Functions relatives to premiums claiming  */
+
+    /// @param _epoch Epoch of the option to claim premiums
+    /// @param _strikePrice Strike price of the option to claim premiums
     function claimPremiums(uint256 _epoch, uint256 _strikePrice) public {
         require(
             block.timestamp >
@@ -256,6 +286,10 @@ contract StrikePool is
         _claimPremiums_Cb4(_epoch, _strikePrice, msg.sender);
     }
 
+    /// @dev Internal function to claim premiums
+    /// @dev This function will claim all the premiums for a given epoch and strike price
+    /// @param _epoch Epoch of the option to claim premiums
+    /// @param _strikePrice Strike price of the option to claim premiums
     function _claimPremiums_Cb4(
         uint256 _epoch,
         uint256 _strikePrice,
@@ -272,6 +306,10 @@ contract StrikePool is
         IERC20Upgradeable(erc20).transfer(_user, userPremiums);
     }
 
+    /* Others stakers functions */
+
+    /// @notice When an option expires in the money, the writer can cover his position to avoid liquidation
+    /// @param _tokenId Id of the NFT writer needs to cover to avoid liquidation
     function coverPosition(uint256 _tokenId) public {
         Option memory option = optionAt[_tokenId];
         require(
@@ -290,6 +328,7 @@ contract StrikePool is
         require(option.liquidated != true, "Option already liquidated");
         require(option.buyer != address(0), "Option have not been bought");
         require(!option.covered, "Option already covered");
+
         // Transfer debt to option writer and set the position covered
         uint256 debt = floorPriceAt[option.epoch] - option.sPrice;
         require(
@@ -300,15 +339,11 @@ contract StrikePool is
             )
         );
         optionAt[_tokenId].covered = true;
-        emit CoverPosition(
-            option.epoch,
-            _tokenId,
-            debt,
-            msg.sender,
-            option.buyer
-        );
+        emit CoverPosition(option.epoch, _tokenId, debt, msg.sender);
     }
 
+    /// @notice Whithdraw an NFT from the protocol
+    /// @param _tokenId Id of the NFT to withdraw
     function withdrawNFT(uint256 _tokenId) public {
         Option memory option = optionAt[_tokenId];
         require(getEpoch_2e() > option.epoch, "Epoch not finished");
@@ -341,6 +376,9 @@ contract StrikePool is
 
     /*** Buyers functions ***/
 
+    /// @notice Buy options of the current epoch for a given strike price
+    /// @param _strikePrice Strike price of the options to buy
+    /// @param _amount Amount of options to buy
     function buyOptions(
         uint256 _strikePrice,
         uint256 _amount
@@ -432,6 +470,10 @@ contract StrikePool is
         );
     }
 
+    /// @dev Liquidate a position
+    /// @dev When an option expires in the money, the buyer can liquidate the position if the writer didn't cover it on time
+    /// @dev The function will use the AuctionManager contract to sell the NFT and the option buyer will receive the debt
+    /// @param _tokenId Id of the NFT to liquidate
     function liquidateNFT(uint256 _tokenId) public {
         Option memory option = optionAt[_tokenId];
         uint256 epoch = option.epoch;
@@ -474,8 +516,11 @@ contract StrikePool is
         );
     }
 
-    /*** Auction contract ***/
+    /*** Auction contract functions ***/
 
+    /// @notice Bid on an auction started by the liquidation of a position
+    /// @param _tokenId Id of the NFT to bid on
+    /// @param _amount Amount of ERC20 to bid
     function bidAuction(uint256 _tokenId, uint256 _amount) public {
         IAuctionManager(auctionManager).bid(
             erc721,
@@ -485,6 +530,8 @@ contract StrikePool is
         );
     }
 
+    /// @notice End an auction started by the liquidation of a position
+    /// @param _tokenId Id of the NFT to end the auction on
     function endAuction(uint256 _tokenId) public {
         require(
             IAuctionManager(auctionManager).end(erc721, address(this), _tokenId)
@@ -496,6 +543,9 @@ contract StrikePool is
 
     /*** Admin functions ***/
 
+    /// @notice Set the strike price for an epoch
+    /// @param _epoch Epoch to set the strike price for
+    /// @param _strikePrices Array of strike prices to set
     function setStrikePriceAt(
         uint256 _epoch,
         uint256[] memory _strikePrices
@@ -506,6 +556,10 @@ contract StrikePool is
         emit SetStrikePrice(_epoch, _strikePrices);
     }
 
+    /// @notice Set the floor price for an epoch
+    /// @dev The floor price will be set by the oracle
+    /// @param _epoch Epoch to set the floor price for
+    /// @param _floorPrice Floor price to set
     function setFloorPriceAt(
         uint256 _epoch,
         uint256 _floorPrice
