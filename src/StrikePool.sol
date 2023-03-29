@@ -149,7 +149,6 @@ contract StrikePool is
         _stakeNFTs_9sJ(nepoch, _tokenId, _strikePrice, msg.sender);
 
         ++shareAtOf[nepoch][_strikePrice][msg.sender];
-        emit Stake(nepoch, _tokenId, _strikePrice, msg.sender);
     }
 
     /// @notice Stake NFTs and write options for the next epoch
@@ -161,6 +160,7 @@ contract StrikePool is
     ) public {
         uint256 nepoch = getEpoch_2e() + 1;
         require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
+        _tokenIds.length;
         for (uint256 i = 0; i < _tokenIds.length; i++) {
             _stakeNFTs_9sJ(nepoch, _tokenIds[i], _strikePrice, msg.sender);
         }
