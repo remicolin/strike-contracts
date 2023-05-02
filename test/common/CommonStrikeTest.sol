@@ -11,8 +11,9 @@ import "../../src/interfaces/IStrikePool.sol";
 import "../../src/AuctionManager.sol";
 import "../../src/libraries/OptionPricing.sol";
 import "../../src/mocks/MockOracle.sol";
+import "./CommonOptimisticOracleV3Test.sol";
 
-contract CommonStrikeTest is Test {
+contract CommonStrikeTest is Test, CommonOptimisticOracleV3Test {
     AuctionManager public auctionManager;
     StrikeController public strikeController;
     IStrikePool public strikePoolProxy;
@@ -33,7 +34,7 @@ contract CommonStrikeTest is Test {
     address internal tom;
 
     function _commonSetup() public {
-        
+        _commonSetupOracle();
         /*** Deploy contracts***/
         erc20 = new MockERC20("EGOLD token", "GLD");
         erc721 = new MockERC721();
@@ -98,6 +99,10 @@ contract CommonStrikeTest is Test {
         vm.startPrank(alice);
         strikePoolProxy.buyOptions(strikePrice1, 2);
         vm.stopPrank();
+    }
+
+    function _umaSetup() public {
+        defaultCurrency.allocateTo(bob,10 ether);
     }
     
 

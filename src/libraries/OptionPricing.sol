@@ -66,7 +66,7 @@ contract OptionPricingSimple is Ownable, IOptionPricing {
         uint256 strike,
         uint256 lastPrice,
         uint256 volatility
-    ) external view override returns (uint256) {
+    ) public view override returns (uint256) {
         uint256 timeToExpiry = expiry.sub(block.timestamp).div(864);
 
         uint256 optionPrice = BlackScholes

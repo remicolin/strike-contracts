@@ -1,17 +1,17 @@
 {
   "abi": [],
   "bytecode": {
-    "object": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212209f99bc06257fa54860c583d2bbf8428f0ca18c41088067652d088806a79fc8b164736f6c63430008100033",
+    "object": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220e4b161880a4e4109bcbb12660efca0a0a50a331c0c2ac1c7c76ba359c5aceac964736f6c63430008100033",
     "sourceMap": "734:3689:23:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;734:3689:23;;;;;;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212209f99bc06257fa54860c583d2bbf8428f0ca18c41088067652d088806a79fc8b164736f6c63430008100033",
+    "object": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220e4b161880a4e4109bcbb12660efca0a0a50a331c0c2ac1c7c76ba359c5aceac964736f6c63430008100033",
     "sourceMap": "734:3689:23:-:0;;;;;;;;",
     "linkReferences": {}
   },
   "methodIdentifiers": {},
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Wrappers around ERC20 operations that throw on failure (when the token contract returns false). Tokens that return no value (and instead revert or throw on failure) are also supported, non-reverting calls are assumed to be successful. To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract, which allows you to call the safe operations as `token.safeTransfer(...)`, etc.\",\"kind\":\"dev\",\"methods\":{},\"title\":\"SafeERC20\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol\":\"SafeERC20Upgradeable\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin-up/=lib/openzeppelin-contracts-upgradeable/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol\":{\"keccak256\":\"0x5f83581950887be701a44c250c1c6e38e9d421809a56717dc99d1d216e5bc41a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://45516064c5e566f9ca1f854cbf142c37d86ac4a771c3a92aeecbf160ec92133c\",\"dweb:/ipfs/QmR8a8iwevbt8dvpDhpskPSQsfs5kCL8Ztz1pLZLJfHf5Z\"]},\"lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol\":{\"keccak256\":\"0x9d87a452fd41124dbdde32b867a211842f89e18ac37ab7c4cdaa5cf7eaa55095\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fc297a5f432f2dbb803e56bdb5e35b516cf086211f28879d710dddced0e9c3ac\",\"dweb:/ipfs/QmcUgFjjmDiArzwnudEXtdMWJ4QJLiNS4MpKRVSNgc73B9\"]},\"lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol\":{\"keccak256\":\"0x81d69543a239854bf999e89d82c53f165b9d46a4fda48030a219f61b3d2562f2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f276de446e5e9985aabfe4830463d4ac2f705b99b19233ccff36047e3798a8ba\",\"dweb:/ipfs/QmeLoALerb41ZY9D3mBN3V6EkwspG1PiQ5kcBFopeFHSVB\"]},\"lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol\":{\"keccak256\":\"0x8c3779e8eb813ea61cc427ef6331ce26480fd3b3e50cd09693a5684c544f8a20\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7b78242734070278c66466c020a664119cd089b87f19e4113c2dec691429c6f3\",\"dweb:/ipfs/QmU5PCFRbhxkyx1XqANQJGKoshho4zCaVap11T5VjUNYmv\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Wrappers around ERC20 operations that throw on failure (when the token contract returns false). Tokens that return no value (and instead revert or throw on failure) are also supported, non-reverting calls are assumed to be successful. To use this library you can add a `using SafeERC20 for IERC20;` statement to your contract, which allows you to call the safe operations as `token.safeTransfer(...)`, etc.\",\"kind\":\"dev\",\"methods\":{},\"title\":\"SafeERC20\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol\":\"SafeERC20Upgradeable\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@across-protocol/=node_modules/@across-protocol/\",\":@ensdomains/=node_modules/@ensdomains/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@gnosis.pm/=node_modules/@gnosis.pm/\",\":@maticnetwork/=node_modules/@maticnetwork/\",\":@openzeppelin-up/=lib/openzeppelin-contracts-upgradeable/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@uma/=node_modules/@uma/\",\":@uniswap/=node_modules/@uniswap/\",\":base64-sol/=node_modules/base64-sol/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol\":{\"keccak256\":\"0x5f83581950887be701a44c250c1c6e38e9d421809a56717dc99d1d216e5bc41a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://45516064c5e566f9ca1f854cbf142c37d86ac4a771c3a92aeecbf160ec92133c\",\"dweb:/ipfs/QmR8a8iwevbt8dvpDhpskPSQsfs5kCL8Ztz1pLZLJfHf5Z\"]},\"lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol\":{\"keccak256\":\"0x9d87a452fd41124dbdde32b867a211842f89e18ac37ab7c4cdaa5cf7eaa55095\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fc297a5f432f2dbb803e56bdb5e35b516cf086211f28879d710dddced0e9c3ac\",\"dweb:/ipfs/QmcUgFjjmDiArzwnudEXtdMWJ4QJLiNS4MpKRVSNgc73B9\"]},\"lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol\":{\"keccak256\":\"0x81d69543a239854bf999e89d82c53f165b9d46a4fda48030a219f61b3d2562f2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f276de446e5e9985aabfe4830463d4ac2f705b99b19233ccff36047e3798a8ba\",\"dweb:/ipfs/QmeLoALerb41ZY9D3mBN3V6EkwspG1PiQ5kcBFopeFHSVB\"]},\"lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol\":{\"keccak256\":\"0x8c3779e8eb813ea61cc427ef6331ce26480fd3b3e50cd09693a5684c544f8a20\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7b78242734070278c66466c020a664119cd089b87f19e4113c2dec691429c6f3\",\"dweb:/ipfs/QmU5PCFRbhxkyx1XqANQJGKoshho4zCaVap11T5VjUNYmv\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.16+commit.07a7930e"
@@ -32,11 +32,21 @@
     },
     "settings": {
       "remappings": [
+        ":@across-protocol/=node_modules/@across-protocol/",
+        ":@ensdomains/=node_modules/@ensdomains/",
+        ":@eth-optimism/=node_modules/@eth-optimism/",
+        ":@gnosis.pm/=node_modules/@gnosis.pm/",
+        ":@maticnetwork/=node_modules/@maticnetwork/",
         ":@openzeppelin-up/=lib/openzeppelin-contracts-upgradeable/",
         ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":@uma/=node_modules/@uma/",
+        ":@uniswap/=node_modules/@uniswap/",
+        ":base64-sol/=node_modules/base64-sol/",
         ":ds-test/=lib/forge-std/lib/ds-test/src/",
         ":erc4626-tests/=lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/",
+        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
         ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
         ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
         ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
       ],

@@ -3,6 +3,8 @@ pragma solidity ^0.8.13;
 
 interface IStrikeController {
     function deployPool(address _erc721) external returns (address pool);
+    function deployPoolChainlink(address _erc721) external returns (address pool);
+    function deployPool2(address _erc721,address _defaultCurrency,address _oo) external returns (address pool);
 
     function getPoolFromTokenAddress(
         address _tokenAddress

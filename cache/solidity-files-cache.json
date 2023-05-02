@@ -7,10 +7,595 @@
     "tests": "test",
     "scripts": "script",
     "libraries": [
-      "lib"
+      "lib",
+      "node_modules"
     ]
   },
   "files": {
+    "lib/chainlink/contracts/src/v0.8/Chainlink.sol": {
+      "lastModificationDate": 1682529382015,
+      "contentHash": "9dc050539cdf1579d5650d41d0df9ec2",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/Chainlink.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Chainlink": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Chainlink.sol/Chainlink.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/ChainlinkClient.sol": {
+      "lastModificationDate": 1682529382015,
+      "contentHash": "6af479cbde42f1a7225c9cebc6e32239",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/ChainlinkClient.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink/contracts/src/v0.8/Chainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/ChainlinkRequestInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/ENSInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OperatorInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OracleInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/PointerInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/ENSResolver.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ChainlinkClient": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "ChainlinkClient.sol/ChainlinkClient.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/ConfirmedOwner.sol": {
+      "lastModificationDate": 1682529382015,
+      "contentHash": "16d64572b0310127fc8a771e63be6d20",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/ConfirmedOwner.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink/contracts/src/v0.8/ConfirmedOwnerWithProposal.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ConfirmedOwner": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "ConfirmedOwner.sol/ConfirmedOwner.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/ConfirmedOwnerWithProposal.sol": {
+      "lastModificationDate": 1682529382015,
+      "contentHash": "8b1c5f02622cd87472493bda6595d1be",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/ConfirmedOwnerWithProposal.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ConfirmedOwnerWithProposal": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "ConfirmedOwnerWithProposal.sol/ConfirmedOwnerWithProposal.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/interfaces/ChainlinkRequestInterface.sol": {
+      "lastModificationDate": 1682529382026,
+      "contentHash": "14407a6ead15cff8a0e0a7f8037c68f5",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/interfaces/ChainlinkRequestInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ChainlinkRequestInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "ChainlinkRequestInterface.sol/ChainlinkRequestInterface.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/interfaces/ENSInterface.sol": {
+      "lastModificationDate": 1682529382026,
+      "contentHash": "06b6aefcae95de6d1597ad8e1d73a08b",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/interfaces/ENSInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ENSInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "ENSInterface.sol/ENSInterface.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol": {
+      "lastModificationDate": 1682529382027,
+      "contentHash": "da5a0c3bd86c896f6a407f909c57edf3",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "LinkTokenInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "LinkTokenInterface.sol/LinkTokenInterface.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/interfaces/OperatorInterface.sol": {
+      "lastModificationDate": 1682529382027,
+      "contentHash": "e1822c36361fc3a26b5a68df3ddab15d",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/interfaces/OperatorInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink/contracts/src/v0.8/interfaces/ChainlinkRequestInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OracleInterface.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "OperatorInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OperatorInterface.sol/OperatorInterface.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/interfaces/OracleInterface.sol": {
+      "lastModificationDate": 1682529382027,
+      "contentHash": "6283e42024961596926c2b5015eef8e0",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/interfaces/OracleInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "OracleInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OracleInterface.sol/OracleInterface.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol": {
+      "lastModificationDate": 1682529382027,
+      "contentHash": "2e814c8a9f77897f6995436d97c23d99",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "OwnableInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OwnableInterface.sol/OwnableInterface.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/interfaces/PointerInterface.sol": {
+      "lastModificationDate": 1682529382027,
+      "contentHash": "27da4b2007d200dd5afff31dbf31ac99",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/interfaces/PointerInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "PointerInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "PointerInterface.sol/PointerInterface.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol": {
+      "lastModificationDate": 1682529382032,
+      "contentHash": "52ac6f99fb0635751ae4ed11139878fd",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "BufferChainlink": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "BufferChainlink.sol/BufferChainlink.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol": {
+      "lastModificationDate": 1682529382033,
+      "contentHash": "99b3ee2c29bc0d1a5cba583d9e8d835e",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol"
+      ],
+      "versionRequirement": ">=0.4.19",
+      "artifacts": {
+        "CBORChainlink": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "CBORChainlink.sol/CBORChainlink.json"
+        }
+      }
+    },
+    "lib/chainlink/contracts/src/v0.8/vendor/ENSResolver.sol": {
+      "lastModificationDate": 1682529382033,
+      "contentHash": "24a98b0606654e662097eed9ffa91a11",
+      "sourceName": "lib/chainlink/contracts/src/v0.8/vendor/ENSResolver.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ENSResolver": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "ENSResolver.sol/ENSResolver.json"
+        }
+      }
+    },
     "lib/forge-std/lib/ds-test/src/test.sol": {
       "lastModificationDate": 1679332666452,
       "contentHash": "962996f0e05d5218857a538a62d7c47e",
@@ -1488,6 +2073,102 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol": {
+      "lastModificationDate": 1679332666514,
+      "contentHash": "212e86880d210b6cac8c3eb0cd6b1fad",
+      "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "ERC721Enumerable": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "ERC721Enumerable.sol/ERC721Enumerable.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol": {
+      "lastModificationDate": 1679332666514,
+      "contentHash": "f4dd06783f321aa26179bc2b6e361c29",
+      "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IERC721Enumerable": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "IERC721Enumerable.sol/IERC721Enumerable.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
       "lastModificationDate": 1679332666514,
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
@@ -1893,6 +2574,46 @@
       "artifacts": {
         "SignedMath": {
           "0.8.16+commit.07a7930e.Darwin.appleclang": "SignedMath.sol/SignedMath.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol": {
+      "lastModificationDate": 1679332666518,
+      "contentHash": "f7b3809e202b5547e9ddd97aaeb1d907",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "SignedSafeMath": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "SignedSafeMath.sol/SignedSafeMath.json"
         }
       }
     },
@@ -2611,6 +3332,1186 @@
         }
       }
     },
+    "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "7a0d131d72cb60d0472208cc0d312325",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "AddressWhitelist": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "AddressWhitelist.sol/AddressWhitelist.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "925000c6f3e453f7ba8a0332e5c123a5",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "AncillaryData": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "AncillaryData.sol/AncillaryData.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "3ce8325f63214a016c5268855b41279d",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "FixedPoint": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "FixedPoint.sol/FixedPoint.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/Lockable.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "e24e4db843dedf786dc2e25a70590a7e",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Lockable": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Lockable.sol/Lockable.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "1304ce0f13777e0ec58c0ead2b0df75b",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "MultiCaller": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "MultiCaller.sol/MultiCaller.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "08ce46457a948bc6620bd095b1fc3df5",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Exclusive": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "MultiRole.sol/Exclusive.json"
+        },
+        "MultiRole": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "MultiRole.sol/MultiRole.json"
+        },
+        "Shared": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "MultiRole.sol/Shared.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/Testable.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "534d1f25cc7fbe77cc4493621cce244a",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Testable": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Testable.sol/Testable.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "9c4cab049515246bf855e1f370817516",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "TestnetERC20": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "TestnetERC20.sol/TestnetERC20.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/Timer.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "3b069029e651f6d904cdf5afce811d32",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Timer": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Timer.sol/Timer.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "403e728f3e8c0010d9eadb2d621fa455",
+      "sourceName": "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Withdrawable": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Withdrawable.sol/Withdrawable.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "c41763a68a7ae18caebbebc8c9d6d208",
+      "sourceName": "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "AddressWhitelistInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "AddressWhitelistInterface.sol/AddressWhitelistInterface.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "335da0214eefa8dae1b88722501c09ad",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "OptimisticOracleConstraints": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Constants.sol/OptimisticOracleConstraints.json"
+        },
+        "OracleInterfaces": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Constants.sol/OracleInterfaces.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "aef4f2beeecea88b62019a0355d2b6b9",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Finder": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Finder.sol/Finder.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "b448ecfe7ecb7ee655e60f40773609d2",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IdentifierWhitelist": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "IdentifierWhitelist.sol/IdentifierWhitelist.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "2efade2190de01a13ef209ddd8b5d719",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Store": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Store.sol/Store.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "3d0d50a782fec7c1d0782dfd8d232ed4",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "FinderInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "FinderInterface.sol/FinderInterface.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "cb5009017f24230e0132da3fcc70d78c",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IdentifierWhitelistInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "IdentifierWhitelistInterface.sol/IdentifierWhitelistInterface.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "0a80d49492aa782a8fa2366a501f5b7e",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "OracleAncillaryInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OracleAncillaryInterface.sol/OracleAncillaryInterface.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "ab2976314c45b189c3160a0a0e38c2a5",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "StoreInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "StoreInterface.sol/StoreInterface.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "16966d11eeffebc0862a748646ca4054",
+      "sourceName": "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "MockOracleAncillary": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "MockOracleAncillary.sol/MockOracleAncillary.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol": {
+      "lastModificationDate": 1680384164455,
+      "contentHash": "ff5ccae6aba3d2ee687cf296215287e1",
+      "sourceName": "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "OptimisticOracleV3": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OptimisticOracleV3.sol/OptimisticOracleV3.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol": {
+      "lastModificationDate": 1680380990667,
+      "contentHash": "175307a2575aa27898aa05f3831d5503",
+      "sourceName": "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "AssertingCallerTest": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "AssertingCallerTest.sol/AssertingCallerTest.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "9f3005786067e345711192c908649ad7",
+      "sourceName": "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "OptimisticOracleV3Test": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OptimisticOracleV3Test.sol/OptimisticOracleV3Test.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "9ab50e247612079bfa1c8ebc7679fe5c",
+      "sourceName": "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "EscalationManagerInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "EscalationManagerInterface.sol/EscalationManagerInterface.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "e77a87ea33081571048b9bde319fc08d",
+      "sourceName": "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "OptimisticOracleV3CallbackRecipientInterface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OptimisticOracleV3CallbackRecipientInterface.sol/OptimisticOracleV3CallbackRecipientInterface.json"
+        }
+      }
+    },
+    "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol": {
+      "lastModificationDate": 1680109786795,
+      "contentHash": "5f371fdb322cfffb3e474cc22e865d5c",
+      "sourceName": "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "OptimisticOracleV3Interface": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OptimisticOracleV3Interface.sol/OptimisticOracleV3Interface.json"
+        }
+      }
+    },
     "script/Counter.s.sol": {
       "lastModificationDate": 1679332608056,
       "contentHash": "0705c52104730a78aef4aa6694175c81",
@@ -2716,8 +4617,8 @@
       }
     },
     "src/StrikeController.sol": {
-      "lastModificationDate": 1679332608056,
-      "contentHash": "295ceae6cce3da47708045af2711994e",
+      "lastModificationDate": 1682587613021,
+      "contentHash": "75ffb76feb28ad7409de15f788658687",
       "sourceName": "src/StrikeController.sol",
       "solcConfig": {
         "settings": {
@@ -2871,8 +4772,8 @@
       }
     },
     "src/interfaces/IStrikeController.sol": {
-      "lastModificationDate": 1679332608056,
-      "contentHash": "edf98dcc7b77ec7340af3f9f7238541b",
+      "lastModificationDate": 1682542481515,
+      "contentHash": "75f357bc8c06a6fbaf7485338d7e6295",
       "sourceName": "src/interfaces/IStrikeController.sol",
       "solcConfig": {
         "settings": {
@@ -2911,8 +4812,8 @@
       }
     },
     "src/interfaces/IStrikePool.sol": {
-      "lastModificationDate": 1679332608056,
-      "contentHash": "a21fe893b1c104fc409572e540b2296f",
+      "lastModificationDate": 1680371657747,
+      "contentHash": "84bbb32e1fab35d492ff5c55a824f82c",
       "sourceName": "src/interfaces/IStrikePool.sol",
       "solcConfig": {
         "settings": {
@@ -2947,6 +4848,126 @@
       "artifacts": {
         "IStrikePool": {
           "0.8.16+commit.07a7930e.Darwin.appleclang": "IStrikePool.sol/IStrikePool.json"
+        }
+      }
+    },
+    "src/interfaces/IStrikePoolChainlink copy.sol": {
+      "lastModificationDate": 1682531666094,
+      "contentHash": "62cca739b4511b6b7b0897b6c5ec3126",
+      "sourceName": "src/interfaces/IStrikePoolChainlink copy.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IStrikePoolChainlink": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "IStrikePoolChainlink copy.sol/IStrikePoolChainlink.json"
+        }
+      }
+    },
+    "src/interfaces/IStrikePoolChainlink.sol": {
+      "lastModificationDate": 1682068013951,
+      "contentHash": "62cca739b4511b6b7b0897b6c5ec3126",
+      "sourceName": "src/interfaces/IStrikePoolChainlink.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IStrikePoolChainlink": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "IStrikePoolChainlink.sol/IStrikePoolChainlink.json"
+        }
+      }
+    },
+    "src/interfaces/IStrikePoolOracle.sol": {
+      "lastModificationDate": 1680704888103,
+      "contentHash": "588a0e9c3671ba2b2f50a00de14c63fc",
+      "sourceName": "src/interfaces/IStrikePoolOracle.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IStrikePoolOracle": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "IStrikePoolOracle.sol/IStrikePoolOracle.json"
         }
       }
     },
@@ -3073,8 +5094,8 @@
       }
     },
     "src/libraries/OptionPricing.sol": {
-      "lastModificationDate": 1679332608056,
-      "contentHash": "0616e58d46ef57a3a3ec7a07427be962",
+      "lastModificationDate": 1681937817403,
+      "contentHash": "340620e1f2f92f50316fc23d0e6ff2dc",
       "sourceName": "src/libraries/OptionPricing.sol",
       "solcConfig": {
         "settings": {
@@ -3119,6 +5140,91 @@
         }
       }
     },
+    "src/libraries/OptionPricingNonOwnable.sol": {
+      "lastModificationDate": 1682533774704,
+      "contentHash": "2f4dd81a1c28b952f356e52f03cecec7",
+      "sourceName": "src/libraries/OptionPricingNonOwnable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "src/libraries/ABDKMathQuad.sol",
+        "src/libraries/BlackScholes.sol",
+        "src/libraries/IOptionPricing.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "OptionPricingSimpleNonOwnable": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OptionPricingNonOwnable.sol/OptionPricingSimpleNonOwnable.json"
+        }
+      }
+    },
+    "src/mocks/IMockChainlinkOracle.sol": {
+      "lastModificationDate": 1682070920845,
+      "contentHash": "0534bd762287e79f5f36c62556940868",
+      "sourceName": "src/mocks/IMockChainlinkOracle.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.10",
+      "artifacts": {
+        "IMockChainlinkOracle": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "IMockChainlinkOracle.sol/IMockChainlinkOracle.json"
+        }
+      }
+    },
     "src/mocks/IMockOracle.sol": {
       "lastModificationDate": 1679332608056,
       "contentHash": "45cf2581619563068c801088715b1c44",
@@ -3156,6 +5262,55 @@
       "artifacts": {
         "IMockOracle": {
           "0.8.16+commit.07a7930e.Darwin.appleclang": "IMockOracle.sol/IMockOracle.json"
+        }
+      }
+    },
+    "src/mocks/MockChainlinkOracle.sol": {
+      "lastModificationDate": 1682070952711,
+      "contentHash": "01954c0e1156876e1f652756f1237e2c",
+      "sourceName": "src/mocks/MockChainlinkOracle.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "src/interfaces/IStrikePoolChainlink.sol",
+        "src/libraries/ABDKMathQuad.sol",
+        "src/libraries/BlackScholes.sol",
+        "src/libraries/IOptionPricing.sol",
+        "src/libraries/OptionPricing.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "MockChainlinkOracle": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "MockChainlinkOracle.sol/MockChainlinkOracle.json"
         }
       }
     },
@@ -3205,8 +5360,8 @@
       }
     },
     "src/mocks/MockERC721.sol": {
-      "lastModificationDate": 1679332608057,
-      "contentHash": "e180df86200ea153ba0876a2a4387176",
+      "lastModificationDate": 1681647770557,
+      "contentHash": "167edc6870fe36f6b59f4f6d1863b3e1",
       "sourceName": "src/mocks/MockERC721.sol",
       "solcConfig": {
         "settings": {
@@ -3240,6 +5395,8 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
@@ -3296,9 +5453,347 @@
         }
       }
     },
+    "src/oracle/ChainlinkOracle.sol": {
+      "lastModificationDate": 1683034166460,
+      "contentHash": "b16bd80e44438f47252632416ae35377",
+      "sourceName": "src/oracle/ChainlinkOracle.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink/contracts/src/v0.8/Chainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/ChainlinkClient.sol",
+        "lib/chainlink/contracts/src/v0.8/ConfirmedOwner.sol",
+        "lib/chainlink/contracts/src/v0.8/ConfirmedOwnerWithProposal.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/ChainlinkRequestInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/ENSInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OperatorInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OracleInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/PointerInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/ENSResolver.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "src/interfaces/IStrikePoolChainlink.sol",
+        "src/libraries/ABDKMathQuad.sol",
+        "src/libraries/BlackScholes.sol",
+        "src/libraries/IOptionPricing.sol",
+        "src/libraries/OptionPricingNonOwnable.sol"
+      ],
+      "versionRequirement": "^0.8.7",
+      "artifacts": {
+        "StrikeOracle": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "ChainlinkOracle.sol/StrikeOracle.json"
+        }
+      }
+    },
+    "src/oracle/GetUint256Job.sol": {
+      "lastModificationDate": 1682530100904,
+      "contentHash": "255fdf6ebc5a53d86d1095f197239700",
+      "sourceName": "src/oracle/GetUint256Job.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/chainlink/contracts/src/v0.8/Chainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/ChainlinkClient.sol",
+        "lib/chainlink/contracts/src/v0.8/ConfirmedOwner.sol",
+        "lib/chainlink/contracts/src/v0.8/ConfirmedOwnerWithProposal.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/ChainlinkRequestInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/ENSInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OperatorInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OracleInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/interfaces/PointerInterface.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol",
+        "lib/chainlink/contracts/src/v0.8/vendor/ENSResolver.sol"
+      ],
+      "versionRequirement": "^0.8.7",
+      "artifacts": {
+        "GetUint256": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "GetUint256Job.sol/GetUint256.json"
+        }
+      }
+    },
+    "src/oracle/StrikePoolChainlink.sol": {
+      "lastModificationDate": 1683018305642,
+      "contentHash": "37e57519eb6f1b8d5548c798776dbfbc",
+      "sourceName": "src/oracle/StrikePoolChainlink.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/security/ReentrancyGuardUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "src/interfaces/IAuctionManager.sol",
+        "src/mocks/IMockChainlinkOracle.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "StrikePoolChainlink": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "StrikePoolChainlink.sol/StrikePoolChainlink.json"
+        }
+      }
+    },
+    "src/oracle/StrikePoolUMA.sol": {
+      "lastModificationDate": 1682067928110,
+      "contentHash": "ce2d8feb5b49c8b2efff8c0d3e9c7009",
+      "sourceName": "src/oracle/StrikePoolUMA.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/security/ReentrancyGuardUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
+        "src/interfaces/IAuctionManager.sol",
+        "src/libraries/IOptionPricing.sol",
+        "src/mocks/IMockOracle.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "StrikePoolUMA": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "StrikePoolUMA.sol/StrikePoolUMA.json"
+        }
+      }
+    },
+    "test/common/CommonOptimisticOracleV3Test.sol": {
+      "lastModificationDate": 1680283687824,
+      "contentHash": "f767055c0d24e4abe22213b10767361a",
+      "sourceName": "test/common/CommonOptimisticOracleV3Test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "CommonOptimisticOracleV3Test": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "CommonOptimisticOracleV3Test.sol/CommonOptimisticOracleV3Test.json"
+        }
+      }
+    },
     "test/common/CommonStrikeTest.sol": {
-      "lastModificationDate": 1680085395339,
-      "contentHash": "75c6914d01eafa3b4bd1e8d01666a111",
+      "lastModificationDate": 1680283118863,
+      "contentHash": "0b1f910d7f1bff1dbb98802e56c57155",
       "sourceName": "test/common/CommonStrikeTest.sol",
       "solcConfig": {
         "settings": {
@@ -3362,6 +5857,8 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
@@ -3372,6 +5869,7 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
@@ -3389,6 +5887,32 @@
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
         "src/AuctionManager.sol",
         "src/StrikeController.sol",
         "src/StrikePool.sol",
@@ -3402,12 +5926,1041 @@
         "src/mocks/IMockOracle.sol",
         "src/mocks/MockERC20.sol",
         "src/mocks/MockERC721.sol",
-        "src/mocks/MockOracle.sol"
+        "src/mocks/MockOracle.sol",
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
       ],
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "CommonStrikeTest": {
           "0.8.16+commit.07a7930e.Darwin.appleclang": "CommonStrikeTest.sol/CommonStrikeTest.json"
+        }
+      }
+    },
+    "test/common/CommonStrikeTestChainlink.sol": {
+      "lastModificationDate": 1682070687443,
+      "contentHash": "2cb23469ba81401b1a9f1f5e09044f3a",
+      "sourceName": "test/common/CommonStrikeTestChainlink.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/transparent/ProxyAdmin.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+        "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/security/ReentrancyGuardUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
+        "src/AuctionManager.sol",
+        "src/StrikeController.sol",
+        "src/interfaces/IAuctionManager.sol",
+        "src/interfaces/IStrikeController.sol",
+        "src/interfaces/IStrikePool.sol",
+        "src/interfaces/IStrikePoolChainlink.sol",
+        "src/libraries/ABDKMathQuad.sol",
+        "src/libraries/BlackScholes.sol",
+        "src/libraries/IOptionPricing.sol",
+        "src/libraries/OptionPricing.sol",
+        "src/mocks/IMockChainlinkOracle.sol",
+        "src/mocks/MockChainlinkOracle.sol",
+        "src/mocks/MockERC20.sol",
+        "src/mocks/MockERC721.sol",
+        "src/oracle/StrikePoolChainlink.sol",
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "CommonStrikeTestChainlink": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "CommonStrikeTestChainlink.sol/CommonStrikeTestChainlink.json"
+        }
+      }
+    },
+    "test/common/CommonStrikeTestOracle.sol": {
+      "lastModificationDate": 1682068152950,
+      "contentHash": "d3e359b22cf9fe570a9b04da791a77a5",
+      "sourceName": "test/common/CommonStrikeTestOracle.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/transparent/ProxyAdmin.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+        "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/security/ReentrancyGuardUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
+        "src/AuctionManager.sol",
+        "src/StrikeController.sol",
+        "src/interfaces/IAuctionManager.sol",
+        "src/interfaces/IStrikeController.sol",
+        "src/interfaces/IStrikePool.sol",
+        "src/interfaces/IStrikePoolOracle.sol",
+        "src/libraries/ABDKMathQuad.sol",
+        "src/libraries/BlackScholes.sol",
+        "src/libraries/IOptionPricing.sol",
+        "src/libraries/OptionPricing.sol",
+        "src/mocks/IMockOracle.sol",
+        "src/mocks/MockERC20.sol",
+        "src/mocks/MockERC721.sol",
+        "src/mocks/MockOracle.sol",
+        "src/oracle/StrikePoolUMA.sol",
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "CommonStrikeTestOracle": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "CommonStrikeTestOracle.sol/CommonStrikeTestOracle.json"
+        }
+      }
+    },
+    "test/common/fixtures/common/CommonTestBase.sol": {
+      "lastModificationDate": 1680281204588,
+      "contentHash": "0d573888786d85cf5fe54d72c7819731",
+      "sourceName": "test/common/fixtures/common/CommonTestBase.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "test/common/fixtures/common/TestAddress.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "CommonTestBase": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "CommonTestBase.sol/CommonTestBase.json"
+        }
+      }
+    },
+    "test/common/fixtures/common/TestAddress.sol": {
+      "lastModificationDate": 1680281204589,
+      "contentHash": "52cba07ce094e7573834aabce945e957",
+      "sourceName": "test/common/fixtures/common/TestAddress.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "TestAddress": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "TestAddress.sol/TestAddress.json"
+        }
+      }
+    },
+    "test/common/fixtures/common/TimerFixture.sol": {
+      "lastModificationDate": 1680281204590,
+      "contentHash": "a89f1e51566ae00c27188c334a4f9239",
+      "sourceName": "test/common/fixtures/common/TimerFixture.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "TimerFixture": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "TimerFixture.sol/TimerFixture.json"
+        }
+      }
+    },
+    "test/common/fixtures/dvm/BaseDvmFixture.sol": {
+      "lastModificationDate": 1680281204590,
+      "contentHash": "8fd30a1c591c52316b797b24e6dd244d",
+      "sourceName": "test/common/fixtures/dvm/BaseDvmFixture.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "BaseDvmFixture": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "BaseDvmFixture.sol/BaseDvmFixture.json"
+        },
+        "BaseDvmFixtureTest": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "BaseDvmFixture.sol/BaseDvmFixtureTest.json"
+        }
+      }
+    },
+    "test/common/fixtures/dvm/MockDvmFixture.sol": {
+      "lastModificationDate": 1680281204591,
+      "contentHash": "7b38aed54e8bde144f2dc6efb9feaec7",
+      "sourceName": "test/common/fixtures/dvm/MockDvmFixture.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "MockDvmFixture": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "MockDvmFixture.sol/MockDvmFixture.json"
+        },
+        "MockDvmFixtureTest": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "MockDvmFixture.sol/MockDvmFixtureTest.json"
+        }
+      }
+    },
+    "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol": {
+      "lastModificationDate": 1680705681588,
+      "contentHash": "c345f6d74f684c64f23acf95d44409a3",
+      "sourceName": "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol"
+      ],
+      "versionRequirement": "=0.8.16",
+      "artifacts": {
+        "OptimisticOracleV3Fixture": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OptimisticOracleV3Fixture.sol/OptimisticOracleV3Fixture.json"
+        },
+        "OptimisticOracleV3FixtureTest": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "OptimisticOracleV3Fixture.sol/OptimisticOracleV3FixtureTest.json"
+        }
+      }
+    },
+    "test/oracle/Chainlink.t.sol": {
+      "lastModificationDate": 1682071096674,
+      "contentHash": "9d8d8cc7d87e1d804fca288815c30014",
+      "sourceName": "test/oracle/Chainlink.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/transparent/ProxyAdmin.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+        "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/security/ReentrancyGuardUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
+        "src/AuctionManager.sol",
+        "src/StrikeController.sol",
+        "src/interfaces/IAuctionManager.sol",
+        "src/interfaces/IStrikeController.sol",
+        "src/interfaces/IStrikePool.sol",
+        "src/interfaces/IStrikePoolChainlink.sol",
+        "src/libraries/ABDKMathQuad.sol",
+        "src/libraries/BlackScholes.sol",
+        "src/libraries/IOptionPricing.sol",
+        "src/libraries/OptionPricing.sol",
+        "src/mocks/IMockChainlinkOracle.sol",
+        "src/mocks/MockChainlinkOracle.sol",
+        "src/mocks/MockERC20.sol",
+        "src/mocks/MockERC721.sol",
+        "src/oracle/StrikePoolChainlink.sol",
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/CommonStrikeTestChainlink.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "OracleTest": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Chainlink.t.sol/OracleTest.json"
+        }
+      }
+    },
+    "test/oracle/UMA.t.sol": {
+      "lastModificationDate": 1680705598555,
+      "contentHash": "8375422fd282fde4c6b1d4905aca8aa1",
+      "sourceName": "test/oracle/UMA.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/StdAssertions.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdError.sol",
+        "lib/forge-std/src/StdInvariant.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/transparent/ProxyAdmin.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+        "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/security/ReentrancyGuardUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/IERC721Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC721/utils/ERC721HolderUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/StringsUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
+        "src/AuctionManager.sol",
+        "src/StrikeController.sol",
+        "src/interfaces/IAuctionManager.sol",
+        "src/interfaces/IStrikeController.sol",
+        "src/interfaces/IStrikePool.sol",
+        "src/interfaces/IStrikePoolOracle.sol",
+        "src/libraries/ABDKMathQuad.sol",
+        "src/libraries/BlackScholes.sol",
+        "src/libraries/IOptionPricing.sol",
+        "src/libraries/OptionPricing.sol",
+        "src/mocks/IMockOracle.sol",
+        "src/mocks/MockERC20.sol",
+        "src/mocks/MockERC721.sol",
+        "src/mocks/MockOracle.sol",
+        "src/oracle/StrikePoolUMA.sol",
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/CommonStrikeTestOracle.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "OracleTest": {
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "UMA.t.sol/OracleTest.json"
         }
       }
     },
@@ -3477,6 +7030,8 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
@@ -3487,6 +7042,7 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
@@ -3504,6 +7060,32 @@
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
         "src/AuctionManager.sol",
         "src/StrikeController.sol",
         "src/StrikePool.sol",
@@ -3518,12 +7100,19 @@
         "src/mocks/MockERC20.sol",
         "src/mocks/MockERC721.sol",
         "src/mocks/MockOracle.sol",
-        "test/common/CommonStrikeTest.sol"
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/CommonStrikeTest.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "BuyTest": {
-          "0.8.16+commit.07a7930e.Darwin.appleclang": "proxy/Buy.t.sol/BuyTest.json"
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Buy.t.sol/BuyTest.json"
         }
       }
     },
@@ -3593,6 +7182,8 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
@@ -3603,6 +7194,7 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
@@ -3620,6 +7212,32 @@
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
         "src/AuctionManager.sol",
         "src/StrikeController.sol",
         "src/StrikePool.sol",
@@ -3634,7 +7252,14 @@
         "src/mocks/MockERC20.sol",
         "src/mocks/MockERC721.sol",
         "src/mocks/MockOracle.sol",
-        "test/common/CommonStrikeTest.sol"
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/CommonStrikeTest.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
@@ -3709,6 +7334,8 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
@@ -3719,6 +7346,7 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
@@ -3736,6 +7364,32 @@
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
         "src/AuctionManager.sol",
         "src/StrikeController.sol",
         "src/StrikePool.sol",
@@ -3750,7 +7404,14 @@
         "src/mocks/MockERC20.sol",
         "src/mocks/MockERC721.sol",
         "src/mocks/MockOracle.sol",
-        "test/common/CommonStrikeTest.sol"
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/CommonStrikeTest.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
@@ -3760,7 +7421,7 @@
       }
     },
     "test/proxy/CoverPosition.t.sol": {
-      "lastModificationDate": 1680085529862,
+      "lastModificationDate": 1680107777028,
       "contentHash": "0664e205b02d340d08d96fe3f958e47d",
       "sourceName": "test/proxy/CoverPosition.t.sol",
       "solcConfig": {
@@ -3825,6 +7486,8 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
@@ -3835,6 +7498,7 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
@@ -3852,6 +7516,32 @@
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
         "src/AuctionManager.sol",
         "src/StrikeController.sol",
         "src/StrikePool.sol",
@@ -3866,7 +7556,14 @@
         "src/mocks/MockERC20.sol",
         "src/mocks/MockERC721.sol",
         "src/mocks/MockOracle.sol",
-        "test/common/CommonStrikeTest.sol"
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/CommonStrikeTest.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
@@ -3941,6 +7638,8 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
@@ -3951,6 +7650,7 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
@@ -3968,6 +7668,32 @@
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
         "src/AuctionManager.sol",
         "src/StrikeController.sol",
         "src/StrikePool.sol",
@@ -3982,7 +7708,14 @@
         "src/mocks/MockERC20.sol",
         "src/mocks/MockERC721.sol",
         "src/mocks/MockOracle.sol",
-        "test/common/CommonStrikeTest.sol"
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/CommonStrikeTest.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
@@ -4057,6 +7790,8 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
@@ -4067,6 +7802,7 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedSafeMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/AccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
@@ -4084,6 +7820,32 @@
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/MathUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/math/SignedMathUpgradeable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AddressWhitelist.sol",
+        "node_modules/@uma/core/contracts/common/implementation/AncillaryData.sol",
+        "node_modules/@uma/core/contracts/common/implementation/FixedPoint.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Lockable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiCaller.sol",
+        "node_modules/@uma/core/contracts/common/implementation/MultiRole.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Testable.sol",
+        "node_modules/@uma/core/contracts/common/implementation/TestnetERC20.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Timer.sol",
+        "node_modules/@uma/core/contracts/common/implementation/Withdrawable.sol",
+        "node_modules/@uma/core/contracts/common/interfaces/AddressWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Constants.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Finder.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/IdentifierWhitelist.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/implementation/Store.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/FinderInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/IdentifierWhitelistInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/OracleAncillaryInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/interfaces/StoreInterface.sol",
+        "node_modules/@uma/core/contracts/data-verification-mechanism/test/MockOracleAncillary.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/OptimisticOracleV3.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/AssertingCallerTest.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/implementation/test/OptimisticOracleV3Test.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/EscalationManagerInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3CallbackRecipientInterface.sol",
+        "node_modules/@uma/core/contracts/optimistic-oracle-v3/interfaces/OptimisticOracleV3Interface.sol",
         "src/AuctionManager.sol",
         "src/StrikeController.sol",
         "src/StrikePool.sol",
@@ -4098,12 +7860,19 @@
         "src/mocks/MockERC20.sol",
         "src/mocks/MockERC721.sol",
         "src/mocks/MockOracle.sol",
-        "test/common/CommonStrikeTest.sol"
+        "test/common/CommonOptimisticOracleV3Test.sol",
+        "test/common/CommonStrikeTest.sol",
+        "test/common/fixtures/common/CommonTestBase.sol",
+        "test/common/fixtures/common/TestAddress.sol",
+        "test/common/fixtures/common/TimerFixture.sol",
+        "test/common/fixtures/dvm/BaseDvmFixture.sol",
+        "test/common/fixtures/dvm/MockDvmFixture.sol",
+        "test/common/fixtures/optimistic-oracle-v3/OptimisticOracleV3Fixture.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "StakeTest": {
-          "0.8.16+commit.07a7930e.Darwin.appleclang": "proxy/Stake.t.sol/StakeTest.json"
+          "0.8.16+commit.07a7930e.Darwin.appleclang": "Stake.t.sol/StakeTest.json"
         }
       }
     }

@@ -20,7 +20,7 @@ contract StrikeController is Ownable, ProxyAdmin {
     constructor(address _erc20) {
         erc20 = _erc20;
     }
-
+    
     function deployPool(
         address _erc721
     ) public onlyOwner returns (address pool) {
@@ -44,6 +44,62 @@ contract StrikeController is Ownable, ProxyAdmin {
         emit PoolDeployed(_erc721, erc20, address(strikePoolProxy));
         return address(strikePoolProxy);
     }
+
+    function deployPool2(
+        address _erc721,address _defaultCurrency,address _optimisticOracle
+    ) public onlyOwner returns (address pool) {
+        require(address(pools[_erc721]) == address(0));
+        TransparentUpgradeableProxy strikePoolProxy = new TransparentUpgradeableProxy(
+                poolImplementation,
+                address(this),
+                abi.encodeWithSignature(
+                    "initialize(address,address,address,address,address,address,address,address)",
+                    _erc721,
+                    erc20,
+                    auctionManager,
+                    optionPricing,
+                    volatilityOracle,
+                    msg.sender,
+                    _defaultCurrency,
+                    _optimisticOracle
+                )
+            );
+
+        pools[_erc721] = strikePoolProxy;
+        erc721.push(_erc721);
+        emit PoolDeployed(_erc721, erc20, address(strikePoolProxy));
+        return address(strikePoolProxy);
+    }
+
+    function deployPoolChainlink(
+        address _erc721
+    ) public onlyOwner returns (address pool) {
+        require(address(pools[_erc721]) == address(0));
+        TransparentUpgradeableProxy strikePoolProxy = new TransparentUpgradeableProxy(
+                poolImplementation,
+                address(this),
+                abi.encodeWithSignature(
+                    "initialize(address,address,address,address,address)",
+                    _erc721,
+                    erc20,
+                    auctionManager,
+                    volatilityOracle,
+                    msg.sender
+                )
+            );
+        pools[_erc721] = strikePoolProxy;
+        erc721.push(_erc721);
+        emit PoolDeployed(_erc721, erc20, address(strikePoolProxy));
+        return address(strikePoolProxy);
+    }
+
+    function upgradePool(
+        address _pool,
+        address _newPoolImplementation
+    ) public onlyOwner {
+        pools[_pool].upgradeTo(_newPoolImplementation);
+    }
+
 
     function getPoolFromTokenAddress(
         address _tokenAddress

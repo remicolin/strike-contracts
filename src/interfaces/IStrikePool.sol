@@ -14,7 +14,9 @@ interface IStrikePool {
     function initialize(
         address _erc721,
         address _erc20,
-        address _auctionManager
+        address _auctionManager,
+        address _baseCurrency,
+        address _oo
     ) external;
 
     /*** Staker functions ***/
