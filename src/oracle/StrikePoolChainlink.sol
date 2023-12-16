@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: unlicensed
+// SPDX-License-Identifier: UNLICENSED
+
 pragma solidity 0.8.16;
 
 import "@openzeppelin-up/contracts/token/ERC721/IERC721Upgradeable.sol";
