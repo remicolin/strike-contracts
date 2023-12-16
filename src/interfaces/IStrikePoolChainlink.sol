@@ -95,9 +95,13 @@ interface IStrikePoolChainlink {
         uint256 _strikePrice
     ) external view returns (uint256);
 
-    function getEpochDuration() external view returns (uint256 epochduration);
-
-    function getInterval() external view returns (uint256 interval);
+    function interval() external view returns (uint256 interval);
 
     function epochduration() external view returns (uint256 epochduration);
+
+    // Enumrable functions
+
+    function getOptionOfOwnerByIndex(address _writer,uint256 _index) external view returns (uint256);
+
+    function getOptionBalanceOf(address _writer) external view returns (uint256);
 }

@@ -21,56 +21,6 @@ contract StrikeController is Ownable, ProxyAdmin {
         erc20 = _erc20;
     }
     
-    function deployPool(
-        address _erc721
-    ) public onlyOwner returns (address pool) {
-        require(address(pools[_erc721]) == address(0));
-        TransparentUpgradeableProxy strikePoolProxy = new TransparentUpgradeableProxy(
-                poolImplementation,
-                address(this),
-                abi.encodeWithSignature(
-                    "initialize(address,address,address,address,address,address)",
-                    _erc721,
-                    erc20,
-                    auctionManager,
-                    optionPricing,
-                    volatilityOracle,
-                    msg.sender
-                )
-            );
-
-        pools[_erc721] = strikePoolProxy;
-        erc721.push(_erc721);
-        emit PoolDeployed(_erc721, erc20, address(strikePoolProxy));
-        return address(strikePoolProxy);
-    }
-
-    function deployPool2(
-        address _erc721,address _defaultCurrency,address _optimisticOracle
-    ) public onlyOwner returns (address pool) {
-        require(address(pools[_erc721]) == address(0));
-        TransparentUpgradeableProxy strikePoolProxy = new TransparentUpgradeableProxy(
-                poolImplementation,
-                address(this),
-                abi.encodeWithSignature(
-                    "initialize(address,address,address,address,address,address,address,address)",
-                    _erc721,
-                    erc20,
-                    auctionManager,
-                    optionPricing,
-                    volatilityOracle,
-                    msg.sender,
-                    _defaultCurrency,
-                    _optimisticOracle
-                )
-            );
-
-        pools[_erc721] = strikePoolProxy;
-        erc721.push(_erc721);
-        emit PoolDeployed(_erc721, erc20, address(strikePoolProxy));
-        return address(strikePoolProxy);
-    }
-
     function deployPoolChainlink(
         address _erc721
     ) public onlyOwner returns (address pool) {
@@ -124,7 +74,7 @@ contract StrikeController is Ownable, ProxyAdmin {
         return optionPricing;
     }
 
-    function setVolatilityOracle(address _volatilityOracle) public onlyOwner {
+    function setOracle(address _volatilityOracle) public onlyOwner {
         volatilityOracle = _volatilityOracle;
     }
 

@@ -52,6 +52,7 @@ contract StrikeOracle is ChainlinkClient, ConfirmedOwner, OptionPricingSimpleNon
         bytes32 _requestId,
         uint256 _value
     ) public recordChainlinkFulfillment(_requestId) {
+        require(msg.sender == chainlinkOracleAddress(), "Only oracle");
         requestToFloor[_requestId] = _value;
         emit RequestValue(_requestId, _value);
         value = _value;

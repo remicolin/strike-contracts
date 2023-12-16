@@ -26,11 +26,12 @@ contract StrikePoolChainlink is
     address public erc20;
     address public strikeController;
     address public auctionManager;
-    address public chainlinkOracle;
+    address public oracle;
 
     bool public liquidationInterrupted;
-    uint256 constant epochduration = 15 days / (24 * 60);
-    uint256 constant interval = 1 days / (24 * 60);
+
+    uint256 constant public epochduration = 15 days / (24 * 60);
+    uint256 constant public interval = 1 days / (24 * 60);
     uint256 public hatching;
 
     /*** Roles ***/
@@ -49,8 +50,12 @@ contract StrikePoolChainlink is
     mapping(uint256 => Option) optionAt;
     mapping(bytes32 => OptionPromise) requestIdtoOptionPromises;
 
-    /*** Events ***/
+    /*** User Option enumerable ***/
+    mapping(address => mapping(uint256 => uint256)) ownedOptions;
+    mapping(uint256 => uint256) ownedOptionsIndex;
+    mapping(address => uint256) optionBalanceOf;
 
+    /*** Events ***/
     event Stake(
         uint256 indexed _epoch,
         uint256 _tokenId,
@@ -115,14 +120,14 @@ contract StrikePoolChainlink is
         address _erc721,
         address _erc20,
         address _auctionManager,
-        address _chainlinkOracle,
+        address _oracle,
         address _admin
     ) public initializer {
         require(_erc721 != address(0), "ERC721 address is 0");
         require(_erc20 != address(0), "ERC20 address is 0");
         require(_auctionManager != address(0), "AuctionManager address is 0");
         require(
-            _chainlinkOracle != address(0),
+            _oracle != address(0),
             "VolatilityOracle address is 0"
         );
         require(_admin != address(0), "Admin address is 0");
@@ -134,7 +139,7 @@ contract StrikePoolChainlink is
         erc20 = _erc20;
         strikeController = msg.sender;
         auctionManager = _auctionManager;
-        chainlinkOracle = _chainlinkOracle;
+        oracle = _oracle;
         _setupRole(DEFAULT_ADMIN_ROLE, _admin);
         _setupRole(FLOOR_PRICE_PROVIDER_ROLE, _admin);
         IERC721Upgradeable(erc721).setApprovalForAll(_auctionManager, true);
@@ -143,17 +148,6 @@ contract StrikePoolChainlink is
     /*** Stakers functions ***/
 
     /* Functions relatives to NFT staking */
-
-    /// @notice Stake NFTs and write option for the next epoch
-    /// @param _tokenId Id of the NFT to stake
-    /// @param _strikePrice Strike price of the option
-    function stakeNFTs(uint256 _tokenId, uint256 _strikePrice) public {
-        uint256 nepoch = getEpoch_2e() + 1;
-        require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
-        _stakeNFTs_9sJ(nepoch, _tokenId, _strikePrice, msg.sender);
-
-        ++shareAtOf[nepoch][_strikePrice][msg.sender];
-    }
 
     /// @notice Stake NFTs and write options for the next epoch
     /// @param _tokenIds List of Ids of the NFTs to stake
@@ -197,25 +191,13 @@ contract StrikePoolChainlink is
 
         NFTsAt[_nepoch][_strikePrice].push(_tokenId);
 
+        // Add Token to owner enumeration
+        _addTokenToOwnerEnumeration(_writer, _tokenId);
+
         emit Stake(_nepoch, _tokenId, _strikePrice, _writer);
     }
 
     /* Functions relatives to NFT re-staking  */
-
-    /// @notice Restake NFTs and write option for the next epoch
-    /// @param _tokenId Id of the NFT to restake
-    /// @param _strikePrice Strike price of the option
-    function restakeNFTs(
-        uint256 _tokenId,
-        uint256 _strikePrice
-    ) public nonReentrant {
-        uint256 nepoch = getEpoch_2e() + 1;
-
-        require(strikePriceAt[nepoch][_strikePrice], "Wrong strikePrice");
-
-        _restakeNFTs_5cC(nepoch, _tokenId, _strikePrice, msg.sender);
-        ++shareAtOf[nepoch][_strikePrice][msg.sender];
-    }
 
     /// @notice Restake NFTs and write options for the next epoch
     /// @param _tokenIds List of Ids of the NFTs to restake
@@ -370,6 +352,9 @@ contract StrikePoolChainlink is
         optionAt[_tokenId].writer = address(0);
         optionAt[_tokenId].covered = false;
 
+        // Remove token from owner enumeration
+        _removeTokenFromOwnerEnumeration(msg.sender, _tokenId);
+
         // Transfer back NFT to owner
         IERC721Upgradeable(erc721).safeTransferFrom(
             address(this),
@@ -401,7 +386,7 @@ contract StrikePoolChainlink is
         uint256 tokensAvailable = NFTsAt[epoch][_strikePrice].length -
             NFTtradedAt[epoch][_strikePrice];
         require(_amount <= tokensAvailable, "Not enough tokens available");
-        bytes32 requestId = IMockChainlinkOracle(chainlinkOracle).requestOracle(
+        bytes32 requestId = IMockChainlinkOracle(oracle).requestOracle(
             erc721,
             _strikePrice
         );
@@ -415,7 +400,7 @@ contract StrikePoolChainlink is
 
     function fullfillOracleRequest(bytes32 requestId,uint256 optionPrice) external {
         OptionPromise memory optionPromise = requestIdtoOptionPromises[requestId];
-        require (msg.sender == msg.sender, "Only oracle can call this function"); // TODO 
+        require (msg.sender == oracle, "Only oracle can call this function"); // TODO 
         uint256 tokensAvailable = NFTsAt[optionPromise.epoch][optionPromise.strikePrice].length -
             NFTtradedAt[optionPromise.epoch][optionPromise.strikePrice];
         require (optionPromise.amount <= tokensAvailable, "Not enough tokens available");
@@ -466,6 +451,11 @@ contract StrikePoolChainlink is
                 option.sPrice
             )
         );
+
+        // remove token from owner enumeration
+        _removeTokenFromOwnerEnumeration(option.writer, _tokenId);
+        optionBalanceOf[option.writer] -= 1;
+
         // Update state variables
         optionAt[_tokenId].writer = address(0);
 
@@ -500,6 +490,9 @@ contract StrikePoolChainlink is
         );
         require(!option.covered, "Position covered");
         require(option.liquidated != true, "Option already liquidated");
+
+        // remove token from owner enumeration
+        _removeTokenFromOwnerEnumeration(option.writer, _tokenId);
 
         // Set the option to liquidated and start an auction on the NFT
         optionAt[_tokenId].liquidated = true;
@@ -548,6 +541,41 @@ contract StrikePoolChainlink is
         optionAt[_tokenId].writer = address(0);
     }
 
+    /*** Enumerable functions ***/
+
+    function _addTokenToOwnerEnumeration(address _to,uint256 _tokenId) private {
+        uint256 length = optionBalanceOf[_to];
+        ownedOptions[_to][length] = _tokenId;
+        ownedOptionsIndex[_tokenId] = length;
+        optionBalanceOf[_to] += 1;
+    }
+
+    function _removeTokenFromOwnerEnumeration(address _from,uint256 _tokenId) private {
+        uint256 lastTokenIndex = optionBalanceOf[_from] - 1;
+        uint256 tokenIndex = ownedOptionsIndex[_tokenId];
+        if (tokenIndex != lastTokenIndex) {
+            uint256 lastTokenId = ownedOptions[_from][lastTokenIndex];
+
+            ownedOptions[_from][tokenIndex] = lastTokenId; // Move the last token to the slot of the to-delete token
+            ownedOptionsIndex[lastTokenId] = tokenIndex; // Update the moved token's index
+        }
+        delete ownedOptionsIndex[_tokenId];
+        delete ownedOptions[_from][lastTokenIndex];
+    }
+
+    function getOptionBalanceOf(address _writer) public view returns (uint256) {
+        return optionBalanceOf[_writer];
+    }
+
+    function getOptionOfOwnerByIndex(address _writer, uint256 _index)
+        public
+        view
+        returns (uint256)
+    {
+        require(_index < optionBalanceOf[_writer], "Index out of bounds");
+        return ownedOptions[_writer][_index];
+    }
+
     /*** Admin functions ***/
 
     /// @notice Set the strike price for an epoch
@@ -580,8 +608,8 @@ contract StrikePoolChainlink is
         auctionManager = _auctionManager;
     }
 
-    function setVolatilityOracle(address _chainlinkOracle) public onlyAdmin {
-        chainlinkOracle = _chainlinkOracle;
+    function setOracle(address _oracle) public onlyAdmin {
+        oracle = _oracle;
     }
 
     function setLiquidationInterrupted(
@@ -595,21 +623,8 @@ contract StrikePoolChainlink is
     }
 
     /*** Getters ***/
-
-    function getFloorPrice(uint256 _epoch) public view returns (uint256) {
-        return floorPriceAt[_epoch];
-    }
-
     function getEpoch_2e() public view returns (uint256) {
         return (block.timestamp - hatching) / epochduration;
-    }
-
-    function getEpochDuration() public pure returns (uint256) {
-        return epochduration;
-    }
-
-    function getInterval() public pure returns (uint256) {
-        return interval;
     }
 
     function getSharesAtOf(
@@ -640,6 +655,10 @@ contract StrikePoolChainlink is
         return
             NFTsAt[_epoch][_strikePrice].length -
             NFTtradedAt[_epoch][_strikePrice];
+    }
+
+    function getFloorPrice(uint256 _epoch) public view returns (uint256) {
+        return floorPriceAt[_epoch];
     }
 
     /*** Modifiers ***/

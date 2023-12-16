@@ -37,7 +37,6 @@ contract MockChainlinkOracle is OptionPricingSimple {
     ) external returns (bytes32) {
         requestCount++;
         bytes32 requestId = bytes32(requestCount);
-        
         requestToPrice[requestId] = strikePrice;
         requestToPool[requestId] = msg.sender;
         return (requestId);
@@ -49,7 +48,7 @@ contract MockChainlinkOracle is OptionPricingSimple {
         uint256 premium = getOptionPrice(
             true,
             strikePrice,
-            block.timestamp,
+            block.timestamp + 14 days,
             floorPrice,
             volatility
         );

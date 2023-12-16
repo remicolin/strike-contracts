@@ -11,9 +11,8 @@ import "../../src/interfaces/IStrikePoolChainlink.sol";
 import "../../src/AuctionManager.sol";
 import "../../src/libraries/OptionPricing.sol";
 import "../../src/mocks/MockChainlinkOracle.sol";
-import "./CommonOptimisticOracleV3Test.sol";
 
-contract CommonStrikeTestChainlink is Test, CommonOptimisticOracleV3Test {
+contract CommonStrikeTestChainlink is Test {
     AuctionManager public auctionManager;
     StrikeController public strikeController;
     IStrikePoolChainlink public strikePoolProxy;
@@ -34,7 +33,6 @@ contract CommonStrikeTestChainlink is Test, CommonOptimisticOracleV3Test {
     address internal tom;
 
     function _commonSetup() public {
-        _commonSetupOracle();
         /*** Deploy contracts***/
         erc20 = new MockERC20("EGOLD token", "GLD");
         erc721 = new MockERC721();
@@ -48,17 +46,17 @@ contract CommonStrikeTestChainlink is Test, CommonOptimisticOracleV3Test {
         /*** Set up contracts***/
         auctionManager.setMainContact(address(strikeController));
         strikeController.setAuctionManager(address(auctionManager));
-        strikeController.setVolatilityOracle(address(mockOracle));
+        strikeController.setOracle(address(mockOracle));
         strikeController.setOptionPricing(address(optionPricing));
         strikePoolProxy = IStrikePoolChainlink(
-            strikeController.deployPool(address(erc721))
+            strikeController.deployPoolChainlink(address(erc721))
         );
         uint256[] memory strikePrices = new uint256[](1);
         strikePrices[0] = strikePrice1;
         strikePoolProxy.setStrikePriceAt(1, strikePrices);
         strikePoolProxy.setStrikePriceAt(2, strikePrices);
-        epochduration = strikePoolProxy.getEpochDuration();
-        interval = strikePoolProxy.getInterval();
+        epochduration = strikePoolProxy.epochduration();
+        interval = strikePoolProxy.interval();
 
         /*** Set-up user  ***/
         alice = vm.addr(0xA11CE);
@@ -80,6 +78,8 @@ contract CommonStrikeTestChainlink is Test, CommonOptimisticOracleV3Test {
         vm.startPrank(alice);
         erc20.freemint();
         erc20.approve(address(strikePoolProxy), 10 ether);
+        erc721.freemint10();
+        erc721.setApprovalForAll(address(strikePoolProxy),true);
         vm.stopPrank();
        
     }
@@ -94,17 +94,37 @@ contract CommonStrikeTestChainlink is Test, CommonOptimisticOracleV3Test {
         vm.stopPrank();
         }
 
-    function _buySetup() public {
-        vm.warp(epochduration + interval);
+    function _complexStakeSetup() public {
+        vm.startPrank(bob);
+        uint256[] memory tokenIds = new uint256[](3);
+        tokenIds[0] = 0;
+        tokenIds[1] = 1;
+        tokenIds[2] = 2;
+        strikePoolProxy.stakeNFTs(tokenIds, strikePrice1);
+        vm.stopPrank();
+
         vm.startPrank(alice);
-        strikePoolProxy.buyOptions(strikePrice1, 2);
+        tokenIds[0] = 10;
+        tokenIds[1] = 11;
+        tokenIds[2] = 12;
+        strikePoolProxy.stakeNFTs(tokenIds, strikePrice1);
+        vm.stopPrank();
+
+        vm.startPrank(bob);
+        tokenIds[0] = 3;
+        tokenIds[1] = 4;
+        tokenIds[2] = 5;
+        strikePoolProxy.stakeNFTs(tokenIds, strikePrice1);
         vm.stopPrank();
     }
 
-    function _umaSetup() public {
-        defaultCurrency.allocateTo(bob,10 ether);
+    function _buySetup() public {
+        vm.warp(epochduration + interval);
+        vm.startPrank(alice);
+        uint requestId = 1;
+        strikePoolProxy.buyOptions(strikePrice1, 2);
+        mockOracle.executeOracle(bytes32(requestId));
+        vm.stopPrank();
     }
-    
-
 
 }
